@@ -1,1 +1,30 @@
-<p>login works!</p>
+
+<div class="login-container">
+    <div class="login-heading">
+        <h3>Login Here</h3>
+        <p><span>Sign in to continue</span></p>
+    </div>
+    <div class="form-items">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form">
+            <div class="form-control">
+                <input type="email" placeholder="hello@ecommersuite.com" formControlName="email">
+                <div *ngIf="!form.get('email')?.valid && form.get('email')?.touched">
+                    <span *ngIf="form.get('email')!.errors!['required']">* email is required</span>
+                </div>
+            </div>
+            <div class="form-control">
+                <input type="password" placeholder="Enter password: **** " formControlName="password">
+                <div *ngIf="!form.get('password')?.valid && form.get('password')?.touched">
+                    <span *ngIf="form.get('password')!.errors!['required']">* password is required</span>
+                </div>
+            </div>
+            <div class="form-control">
+                <button type="submit" [disabled]="!form.valid" id="logBtn">Login</button>
+            </div>
+            <a [routerLink]="'/forgot-pwd'"><span>Forgot Password?</span></a>
+
+           
+        </form>
+    </div>
+</div>
+

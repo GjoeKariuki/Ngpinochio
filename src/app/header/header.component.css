@@ -1,0 +1,39 @@
+#navigateLinks{
+    display: flex;
+    flex-flow: row wrap; 
+ }
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+a:hover, a:active{
+    color: lightgray;
+}
+
+.navigation-items{
+    display: flex;
+    gap: 15px;
+    flex-flow: row wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+mat-toolbar{
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media(max-width: 959px){
+    mat-toolbar{
+        border-radius: 0px;
+    }
+}
+
+
+/* fxFlex fxLayout fxLayoutAlign="end" fxHide.xs  */
+/* fxLayout fxLayoutGap="15px"  */
