@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'sign-up', component:RegistrationComponent},
   {path: 'forgot-pwd', component:ForgotPasswordComponent},
   {path: 'products', component:ProductsComponent},
+  {path: 'products/:id', component:ProductInfoComponent},
   {path: 'cart', component:CartComponent},
   {path: 'orders', component:OrdersComponent},
   {path: 'profile', component:ProfileComponent},

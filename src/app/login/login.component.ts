@@ -21,6 +21,7 @@ export class LoginComponent {
     // check if the details supplied are true
     //redirect to products
     console.log(this.form);    
+    this.router.navigate(['/products'])
   }
 
   goForgot(){

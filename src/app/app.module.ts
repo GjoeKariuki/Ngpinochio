@@ -12,11 +12,13 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { ProductInfoComponent } from './product-info/product-info.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    
    
   ],
   imports: [
