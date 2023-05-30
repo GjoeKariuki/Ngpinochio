@@ -1,0 +1,14 @@
+<div class="displayedproducts" *ngIf="products.length;else noProducts">
+    <div class="product" *ngFor="let product of products">
+     
+      <p> {{ product.productName }}</p>
+      <img src="{{ product.image }}" alt="">
+      <p>PRICE: {{ product.price }}</p>
+      <p> {{ product.description }}</p>
+      <button (click)="showOne(product.id)">VIEW MORE</button>
+    </div>
+  </div>
+  
+<ng-template #noProducts>
+  <p>No products available.</p>
+</ng-template>

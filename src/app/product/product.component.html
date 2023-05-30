@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="navbar">
+
+    <div class="image-container">
+      <div class="imageheaders">
+        <img src="https://global-uploads.webflow.com/605826c62e8de87de744596e/62b5a9572dab880f81c5d178_ajVzMkY7zNN-cU8hLJlTXR93WXkC09AI_0Dm-VBCfWe-kbHdRAAATBpSlNajuRsW7e0jHYCOVjdcHY1Sf-3X4tAI22KAFbbu31rgYGEmgCSV_WUrLFWhWl09ddXm7EhIITjKG0OggdxALfJeGQ.jpeg">
+      </div>
+      <div class="imagetwo">
+        <img src="https://blog.hubspot.com/hs-fs/hubfs/Ecommerce/ecommerce-promotions-fail.jpg?width=691&height=285&name=ecommerce-promotions-fail.jpg">
+      </div>
+    </div>
+  </div>
+  <div class="navbar">
+   
+    <div class="logo">
+      <img src="../../assets/elogo.png" alt="derfgb">
+    </div>
+    <div class="search">
+      <form>
+        <input type="text" id="searchinput" name="search" placeholder="Search...">
+        <input type="submit" id="searchbtn" value="Search">
+      </form>
+    </div>
+  </div>
+  <!-- <div class="Categories">
+    <ul class="category-list">
+      <li>Electronics</li>
+      <li>Clothes</li>
+      <li>Accessories</li>
+      <li>Shoes</li>
+    </ul>
+  </div> -->
+
+  <div class="displayedproducts">
+    
+    <div class="product" *ngFor="let product of products">
+
+  
+      <img src="{{ product.image }}" alt="">
+      <p>Price: {{ product.price }}</p>
+      <p>Product Name: {{ product.productName }}</p>
+      <p>Description: {{ product.description }}</p>
+    </div>
+  </div>
+
+</div>
