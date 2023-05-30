@@ -1,0 +1,13 @@
+
+
+
+    <div class="navbar-items">
+      <div *ngFor="let category of ecommerceService.getCategories()" routerLink="{{category}}">
+        <li>{{category}}</li>
+      </div>
+    </div>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  
+  
