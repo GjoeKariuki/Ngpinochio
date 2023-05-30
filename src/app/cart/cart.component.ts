@@ -1,0 +1,44 @@
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CartserviceService } from '../cartservice.service';
+import { MatDialogRef } from '@angular/material/dialog'
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-cart',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css']
+})
+export class CartComponent {
+  // isValueInserted:boolean=false
+  constructor(private cartservice:CartserviceService, 
+    private matdialogref:MatDialogRef<CartComponent>,
+    private router:Router){}
+  items = this.cartservice.getItems()
+  closeModalCart(){
+    this.matdialogref.close()
+  }
+
+  updateItemCount(index:number){
+    const itm = this.items[index]
+    if(itm.pcount <= 0){
+      this.items.splice(index,1)
+    }
+    // if(itm.pcount === 10){
+    //   this.isValueInserted = true
+    // }
+  }
+  removeItem(index:number){
+    this.items.splice(index,1)
+  }
+  calculateCartTotal():number{
+    return this.items.reduce((total,item) => total + (item.price * item.pcount),0)
+  }
+  gotoCheckout(){
+    this.router.navigate(['/orders'])
+    this.closeModalCart()
+  }
+}

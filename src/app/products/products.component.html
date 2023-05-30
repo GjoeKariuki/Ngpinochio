@@ -1,1 +1,14 @@
-<p>products works!</p>
+<div>
+    <div>
+        <input type="text" placeholder="search product">
+    </div>
+    <div>
+        <div *ngFor="let prod of disproducts">
+            <h3><a [title]="prod.pname + ' details'" [routerLink]="['/products', prod.pid]">{{prod.pname}}</a>
+            </h3>
+            <p *ngIf="prod.pdescription">{{prod.pdescription}}</p>
+            <p *ngIf="prod.price">{{prod.price}}</p>
+            <button type="button" (click)="goDetails(prod.pid)">View more</button>
+        </div>
+    </div>    
+</div>
