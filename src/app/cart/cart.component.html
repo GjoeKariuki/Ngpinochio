@@ -1,5 +1,24 @@
 
-<div *ngFor="let item of items">
+<!-- <div *ngFor="let item of items">
     <span>{{item.pname}}</span>
     <span>{{item.price | currency}}</span>
+    <span>{{item.pquantity}}</span>
+</div> -->
+<div id="modal">
+    <div id="modal-content">
+        <h3>Shopping Cart</h3>
+        <ul>
+            <li *ngFor="let item of items; let i=index">
+                {{item.pname}} - {{item.price}} - Quantity:
+                <input type="number" [(ngModel)]="item.pcount" (input)="updateItemCount(i)" placeholder="1">
+                <button (click)="removeItem(i)">Remove</button>
+            </li>
+        </ul>
+        <p>Total: {{calculateCartTotal()}}</p>
+        <div>
+            <button (click)="closeModalCart()">Cancel</button>
+            <button (click)="gotoCheckout()">Proceed to checkout</button>
+        </div>
+
+    </div>
 </div>

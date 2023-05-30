@@ -6,6 +6,7 @@ export interface iProduct{
     pquantity: number
     price: number
     pcategory: string
+    pcount:number
     
 }
 
@@ -18,7 +19,8 @@ export const products = [
         pimage:'link', 
         pquantity:76, 
         price:430, 
-        pcategory:'peripherals'
+        pcategory:'peripherals',
+        pcount: 1
     },
     {
         pid:'24',
@@ -27,7 +29,8 @@ export const products = [
         pimage:'link', 
         pquantity:76, 
         price:430, 
-        pcategory:'peripherals'
+        pcategory:'peripherals',
+        pcount: 1
     },
     {
         pid:'25',
@@ -36,7 +39,8 @@ export const products = [
         pimage:'link', 
         pquantity:76, 
         price:430, 
-        pcategory:'peripherals'
+        pcategory:'peripherals',
+        pcount: 1
     },
     {
         pid:'26',
@@ -45,7 +49,9 @@ export const products = [
         pimage:'link', 
         pquantity:76, 
         price:430, 
-        pcategory:'peripherals'
+        pcategory:'peripherals',
+        pcount: 1
+
     },
     {
         pid:'27',
@@ -54,7 +60,8 @@ export const products = [
         pimage:'link', 
         pquantity:76, 
         price:430, 
-        pcategory:'peripherals'
+        pcategory:'peripherals',
+        pcount: 1
     },
     {
         pid:'28',
@@ -63,7 +70,8 @@ export const products = [
         pimage:'link', 
         pquantity:76, 
         price:430, 
-        pcategory:'peripherals'
+        pcategory:'peripherals',
+        pcount: 1
     },
     {
         pid:'29',
@@ -72,7 +80,8 @@ export const products = [
         pimage:'link', 
         pquantity:76, 
         price:430, 
-        pcategory:'peripherals'
+        pcategory:'peripherals',
+        pcount: 1
     } 
     
 ]

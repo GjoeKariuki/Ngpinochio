@@ -13,6 +13,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { ProductInfoComponent } from './product-info/product-info.component';
     LandingComponent,
     HeaderComponent,
     SidenavComponent,
-   
+    MatDialogModule,
     MatToolbarModule,MatIconModule,MatListModule,MatButtonModule,MatSidenavModule
     
   
