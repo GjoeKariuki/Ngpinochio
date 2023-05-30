@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    height:110vh;
+    /* width: 100vw; */
+    justify-content: center;
+    background-color: #74D5E6;
+    display: grid;
+    place-items: center;
+
+
+}
+
+.inputs{
+    background-color: white;
+    min-width:50vw;
+    /* height: 45%; */
+    box-shadow: 5px 7px 8px rgba(0, 0, 0, 0.2); 
+    display: flex;
+    flex-direction: column;
+    
+   
+}
+.headers{
+    text-align: center;
+   padding-bottom: 40px;
+   line-height: 50px;
+   padding-top: 50px;
+   
+   }
+   
+.formDetails{
+  
+    display: flex;
+    flex-direction: column;
+   
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* gap:20px; */
+    
+}
+#signup-form{
+    display: flex;
+    flex-flow: column wrap;
+    gap: 20px;
+   
+}
+#formdiv1,#formdiv2,#formdiv3 {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+   
+}
+.formDetails input{
+    width:50%;
+    padding:15px;    
+    border-radius: 10px;
+    font-size: 20px;
+}
+.formDetails input:hover {
+    border-color: #1EBAD6 ;
+    border: 1px solid #1EBAD6 ;
+  }
+
+h1{
+    font-size: 50px;
+}
+h5{
+    font-size: 17.5px;
+}
+
+
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px) rotate(-2deg); }
+    50% { transform: translateX(3px) rotate(3deg); }
+    75% { transform: translateX(-2px) rotate(-2deg); }
+    100% { transform: translateX(0); }
+  }
+  
+  .shake {
+    animation: shake 2s;
+    animation-iteration-count: 1;
+  }
+  
+
+
+
+
+
+
+.signup{
+    width:30%;
+    padding:20px;
+    align-items: center;
+    background-color: #1EBAD6 ;
+    color: #ffffff;
+    border-radius: 15px;
+    font-size: 17px;
+    border-color: #E2F6F9;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+.signup:hover {
+    animation: floatAnimation 3.5s ease-in-out;
+  }
+  
+  @keyframes floatAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* This is css for the validation of forms */
+
+  input.ng-invalid.ng-touched {
+    border: 1px solid red;
+  }
+
+  .error{
+    color: red;;
+  }
+
