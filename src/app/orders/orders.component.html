@@ -2,14 +2,18 @@
 
 <div>
     <form (ngSubmit)="onSubmit()" [formGroup]="checkoutform" >
-        <div *ngFor="let ord of orderItems">
-            <div class="product-item">
-                <label for="name">Product name</label>
+        <div *ngFor="let ord of orderItems" style="color:blueviolet">
+            <div class="product-item" >
+                <label for="name" >Product name</label>
                 <input type="text" placeholder="{{ord.pname}}" formControlName="pname">
             </div>
             <div class="product-item">
                 <label for="name">Product price</label>
                 <input type="text" placeholder="{{ord.price}}" formControlName="price">
+            </div>
+            <div class="product-item">
+                <label for="amount">Product amount</label>
+                <input type="text" placeholder="{{ord.pcount}}" formControlName="amount">
             </div>
             
         </div>

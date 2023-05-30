@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
+  // isValueInserted:boolean=false
   constructor(private cartservice:CartserviceService, 
     private matdialogref:MatDialogRef<CartComponent>,
     private router:Router){}
@@ -26,6 +27,9 @@ export class CartComponent {
     if(itm.pcount <= 0){
       this.items.splice(index,1)
     }
+    // if(itm.pcount === 10){
+    //   this.isValueInserted = true
+    // }
   }
   removeItem(index:number){
     this.items.splice(index,1)
