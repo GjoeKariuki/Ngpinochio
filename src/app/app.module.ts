@@ -31,7 +31,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     SingleCategoryComponent,
     OneProductComponent,
     CartComponentComponent,
-    CarouselComponent   
+   
   ],
   imports: [
     BrowserModule,
@@ -43,7 +43,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HeaderComponent,
     SidenavComponent,
     MatDialogModule,
-    MatToolbarModule,MatIconModule,MatListModule,MatButtonModule,MatSidenavModule
+    MatToolbarModule,MatIconModule,MatListModule,MatButtonModule,MatSidenavModule,
+    CarouselComponent   
   
   ],
   providers: [],

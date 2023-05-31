@@ -1,32 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    height: 110vh;
+    /* width: 100vw; */
+    justify-content: center;
+    background-color: #74D5E6;
+    display: grid;
+    place-items: center;
+}
+
 .login-container {
-    width: 40vw;
-    height: 55vh;
+    width: 500px;
+    height: 500px;
     margin: auto;
     margin-top: 10%;
-    position: relative;
-    background-color: rgb(255 239 189 / 31%);
-    opacity: 0.6;
-    outline: solid 2px rgb(167, 106, 167);
+    background-color: white;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    
+    box-shadow: 5px 7px 8px rgba(0, 0, 0, 0.2);
 }
 
-.login-heading{
+.login-heading {
     margin: 30px;
+    text-align: center;
+}
+
+.form-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .form-control {
     margin: 20px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
-#logBtn {
+form {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    width: 70%;
+}
+
+.form-control input[type="email"],
+.form-control input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    border: 1px solid black;
+}
+
+.form-control input[type="email"]:hover,
+.form-control input[type="password"]:hover {
+    border-color: #1EBAD6;
+    border: 1px solid #1EBAD6;
+}
+
+.form-control button[type="submit"] {
     background-color: #1EBAD6;
-    color: #FFFFFF;
+    color: #ffffff;
     border: none;
     padding: 15px 32px;
     text-align: center;
@@ -36,8 +82,46 @@
     border-radius: 12px;
     transition-duration: 0.3s;
     cursor: pointer;
-    
 }
-#logBtn:hover{
+
+.form-control input:hover {
+    border-color: #1EBAD6;
+    border: 1px solid #1EBAD6;
+}
+
+.form-control button[type="submit"]:hover {
     background-color: rgb(58, 51, 51);
+}
+
+a {
+    text-decoration: none;
+    color: #1EBAD6;
+    font-size: 18px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.error {
+    color: red;
+}
+
+#logBtn {
+    background-color: #1EBAD6;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+
+#logBtn:hover {
+    background-color: black;
+    transform: scale(1.1);
 }

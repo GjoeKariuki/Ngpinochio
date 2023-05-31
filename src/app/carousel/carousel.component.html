@@ -1,7 +1,12 @@
-<!-- <div  *ngIf="images && images.length > 0 "   class = "caraousel-container">
-<img *ngFor="let image of images let i = index"  ;
-[src] ="" [alt] =""
-[ngClass]="{'image-active':selectedIndex === i}"
->
 
-</div> -->
+<ngb-carousel *ngIf="images">
+	<ng-template ngbSlide *ngFor="let imagePath of images">
+		<div class="picsum-img-wrapper">
+			<img [src]="imagePath" [alt]="getImageAltText(imagePath)" />
+		</div>
+		<div class="carousel-caption">
+			<h3>{{ getImageLabel(imagePath) }}</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</div>
+	</ng-template>
+</ngb-carousel>

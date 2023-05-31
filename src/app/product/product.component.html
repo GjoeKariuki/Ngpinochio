@@ -36,11 +36,18 @@
     <div class="product" *ngFor="let product of products">
 
   
-      <img src="{{ product.image }}" alt="">
+      <img src="{{ product.image }}" alt=""
+      
+     >
       <p>Price: {{ product.price }}</p>
       <p>Product Name: {{ product.productName }}</p>
-      <p>Description: {{ product.description }}</p>
+     
+      <!-- <p>Description: {{ product.description }}</p> -->
+      <button (click)="showOne(product.id)" class="view-more-button">VIEW  DETAILS</button>
+      
+
     </div>
   </div>
+
 
 </div>

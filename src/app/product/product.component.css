@@ -1,4 +1,10 @@
 
+  .container {
+    margin: 0 20px;
+  }
+  
+
+
 .imageheaders {
   float: left;
 }
@@ -10,116 +16,128 @@
 .imagetwo img {
   height: 30vh;
 }
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* background-color: #f2f2f2; */
-    padding: 10px;
-  }
-  
-  .logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo img {
-    width: 15.5%;
-    margin-right: 10px;
-  }
-  
-  .search form {
-    display: flex;
-    align-items: center;
-  }
-  
-  .search input[type="text"] {
-    padding: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .search input[type="submit"] {
-    padding: 5px 10px;
-    background-color: #1EBAD6;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .displayedproducts img{
-   width:30%
-  }
-  
-  
 
-.displayedproducts img{
- width:50%
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 15.5%;
+  margin-right: 10px;
+}
+
+.search form {
+  display: flex;
+  align-items: center;
+}
+
+.search input[type="text"] {
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.search input[type="submit"] {
+  padding: 5px 10px;
+  background-color: #1EBAD6;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.displayedproducts img {
+  width: 50%;
 }
 
 .Categories {
-    
-    float: left;
-    max-height: 200px; /* Adjust the maximum height as needed */
-    /* overflow: auto; */
-  }
-  
-  .category-list {
-    list-style-type: none;
-    padding: 60px;
-  }
-  
+  float: left;
+  max-height: 200px; /* Adjust the maximum height as needed */
+}
+
+.category-list {
+  list-style-type: none;
+  padding: 60px;
+}
 
 .displayedproducts {
-    margin-top: 7.5rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
-    grid-gap: 20px; /* Adjust the gap between grid items */
-  }
-  
-  .product {
-    background-color: #f2f2f2;
-    padding: 5px;
-  }
+  margin-top: 7.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+  grid-gap: 20px; /* Adjust the gap between grid items */
+}
 
+.product {
+  background-color: #f2f2f2;
+  padding: 5px;
+}
+
+.displayedproducts {
+  padding: 10px;
+}
+
+.displayedproducts .product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Add border radius for rounded corners */
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.displayedproducts .product img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px; /* Add border radius for rounded corners */
+}
+
+.displayedproducts .product p {
+  margin: 5px 0;
+}
+
+@media only screen and (min-width: 500px) and (max-width: 700px) {
   .displayedproducts {
-    padding: 10px;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+    width: 80vw;
+    margin-left: 2.5%;
   }
-  
-  .displayedproducts .product {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 20px; /* Add border radius for rounded corners */
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .displayedproducts .product img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px; /* Add border radius for rounded corners */
-  }
-  
-  .displayedproducts .product p {
-    margin: 5px 0;
-  }
+}
 
+.view-more-button {
+  background-color: #1EBAD6;;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+}
 
-  @media only screen and (min-width: 500px) and (max-width: 700px) {
-    .displayedproducts {
-      margin-top: 7.5rem;
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);  
-      grid-gap: 20px;
-      width:80vw;
-      margin-left: 2.5%;
-    }
-  }
-  
- 
-  
-  
+.view-more-button:hover {
+  background-color: #0056b3;
+}
+
+.banner {
+  background-color: #f1f1f1;
+  padding: 10px;
+}
+
+.banner p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+

@@ -1,26 +1,25 @@
-<mat-toolbar color="primary">
+
+  <mat-toolbar color="primary" class="custom-toolbar">
     <div fxHide.gt-xs>
         <button mat-icon-button (click)="onToggleSidenav()">
             <mat-icon>menu</mat-icon>
         </button>
     </div>
     <div>
-        <a routerLink="/home">Home</a>
+        <a routerLink="/home">HOME</a>
     </div>
     <div id="navigateLinks">
         <ul class="navigation-items">
+            <li><a routerLink="/category" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">PRODUCTS</a></li>
             <li>
-                <a [routerLink]="'/products'">Products</a>
+                <a (click)="openCartModal()">CART</a>
             </li>
             <li>
-                <a (click)="openCartModal()">Cart</a>
+                <a [routerLink]="'/orders'">ORDERS</a>
             </li>
             <li>
-                <a [routerLink]="'/orders'">Orders</a>
-            </li>
-            <li>
-                <a [routerLink]="'/profile'">Profile</a>
+                <a [routerLink]="'/profile'">PROFILE</a>
             </li>
         </ul>
     </div>
-  </mat-toolbar>
+</mat-toolbar>
