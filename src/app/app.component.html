@@ -6,12 +6,11 @@
     <mat-sidenav-content>
         <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
         <div class ="container">
-            <div class = "links">
-                  
-                    <li><a routerLink="/category" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Products</a></li>
-                   <li><a routerLink="/cart">CART</a></li>
-                   </div>           
-            </div>
+            <div class = "links">                  
+                <li><a routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Products</a></li>
+                <li><a (click)="openCartModal()">CART</a></li>
+            </div>           
+        </div>
         <main>
             <router-outlet></router-outlet>
         </main>

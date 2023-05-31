@@ -5,7 +5,7 @@
         <div *ngFor="let ord of orderItems" style="color:blueviolet">
             <div class="product-item" >
                 <label for="name" >Product name</label>
-                <input type="text" placeholder="{{ord.pname}}" formControlName="pname">
+                <input type="text" placeholder="{{ord.productName}}" formControlName="pname">
             </div>
             <div class="product-item">
                 <label for="name">Product price</label>
@@ -13,7 +13,7 @@
             </div>
             <div class="product-item">
                 <label for="amount">Product amount</label>
-                <input type="text" placeholder="{{ord.pcount}}" formControlName="amount">
+                <input type="text" placeholder="{{ord.count}}" formControlName="amount">
             </div>
             
         </div>

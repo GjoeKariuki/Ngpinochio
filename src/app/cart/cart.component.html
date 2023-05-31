@@ -9,8 +9,8 @@
         <h3>Shopping Cart</h3>
         <ul>
             <li *ngFor="let item of items; let i=index">
-                {{item.pname}} - {{item.price}} - Quantity:
-                <input type="number" [(ngModel)]="item.pcount" (input)="updateItemCount(i)" placeholder="1">
+                {{item.productName}} - {{item.price}} - Quantity:
+                <input type="number" [(ngModel)]="item.count" (input)="updateItemCount(i)" placeholder="1">
                 <button (click)="removeItem(i)">Remove</button>
             </li>
         </ul>

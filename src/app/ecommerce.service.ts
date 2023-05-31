@@ -14,6 +14,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:23
     },
     {
       id: '200',
@@ -22,6 +23,7 @@ export class EcommerceService {
       description: 'Refined ergonomic KONE shape',
       image: 'https://i.shgcdn.com/01b7205f-6b32-482b-bc5a-2126a53d9b65/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 1500,
+      quantity:54
     },
     {
       id: '900',
@@ -30,6 +32,7 @@ export class EcommerceService {
       description: 'Lightweight symmetrical shape for comfort and performance',
       image: 'https://cdn.shopify.com/s/files/1/0507/9688/8239/products/Burst-Pro-Air_BLK_550x534.png?v=1648471990',
       price: 1700,
+      quantity:78
     },
     {
       id: '530',
@@ -38,6 +41,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:890
     },
     {
       id: '510',
@@ -46,6 +50,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:453
     },
     {
       id: '550',
@@ -54,6 +59,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:12
     },
     {
       id: '360',
@@ -62,6 +68,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:67
     },
     {
       id: '300',
@@ -70,6 +77,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:768
     },
     {
       id: '400',
@@ -78,6 +86,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:445
     },
      {
       id: '500',
@@ -86,6 +95,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:232
     },
      {
       id: '600',
@@ -94,6 +104,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:239
     },
     {
       id: '700',
@@ -102,6 +113,7 @@ export class EcommerceService {
       description: 'Mini 60% form factor frees up space on your desktop and 5-Zone AIMO RGB Lighting with translucent top plate',
       image: 'https://i.shgcdn.com/e20910ab-f171-4135-a9c7-112fe1f52290/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
       price: 2500,
+      quantity:231
     }
 
   ]
@@ -134,14 +146,14 @@ export class EcommerceService {
   
   }
 
-  cartItems: Products[] = [];
-  addToCart(product: Products): void {
-    this.cartItems.push(product);
-  }
+  // cartItems: Products[] = [];
+  // addToCart(product: Products): void {
+  //   this.cartItems.push(product);
+  // }
 
-  getCartItems(): Products[] {
-    return this.cartItems;
-  }
+  // getCartItems(): Products[] {
+  //   return this.cartItems;
+  // }
 
 
 

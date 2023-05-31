@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class OrdersComponent {
   styledinput = {color:'blue'}
-  orderItems = this.cartservice.getItems()
+ 
   checkoutform:FormGroup = new FormGroup({
     pname: new FormControl(''),
     price: new FormControl(''),
@@ -21,6 +21,7 @@ export class OrdersComponent {
     email: new FormControl('', [Validators.required]),
     phonenumber: new FormControl('', [Validators.required])
   })
+  orderItems = this.cartservice.getItems()
   constructor(private cartservice:CartserviceService, 
     private formbuilder:FormBuilder, private router:Router){}
   

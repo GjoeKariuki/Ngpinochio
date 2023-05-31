@@ -13,7 +13,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  // isValueInserted:boolean=false
   constructor(private cartservice:CartserviceService, 
     private matdialogref:MatDialogRef<CartComponent>,
     private router:Router){}
@@ -24,18 +23,15 @@ export class CartComponent {
 
   updateItemCount(index:number){
     const itm = this.items[index]
-    if(itm.pcount <= 0){
+    if(itm.count <= 0){
       this.items.splice(index,1)
     }
-    // if(itm.pcount === 10){
-    //   this.isValueInserted = true
-    // }
   }
   removeItem(index:number){
     this.items.splice(index,1)
   }
   calculateCartTotal():number{
-    return this.items.reduce((total,item) => total + (item.price * item.pcount),0)
+    return this.items.reduce((total,item) => total + (item.price * item.count),0)
   }
   gotoCheckout(){
     this.router.navigate(['/orders'])

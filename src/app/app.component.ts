@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { CartComponent } from './cart/cart.component';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -9,5 +12,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'eccomercesuitfrontend';
- 
+  constructor(private dialog:MatDialog){}
+ openCartModal(){
+  const dialogref = this.dialog.open(CartComponent)
+ }
 }

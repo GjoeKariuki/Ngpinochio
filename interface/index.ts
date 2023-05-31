@@ -6,4 +6,18 @@ productName:string
 description:string
 image:string
 price:number
+quantity:number
+
 }
+
+export interface iCartproducts{
+    id:string
+    productName:string
+    category:string
+    description:string
+    image:string
+    price:number
+    quantity:number
+    count:number
+}
+
