@@ -24,7 +24,7 @@ export class CartComponent {
 
   updateItemCount(index:number){
     const itm = this.items[index]
-    if(itm.pcount <= 0){
+    if(itm.count <= 0){
       this.items.splice(index,1)
     }
     // if(itm.pcount === 10){
@@ -35,7 +35,7 @@ export class CartComponent {
     this.items.splice(index,1)
   }
   calculateCartTotal():number{
-    return this.items.reduce((total,item) => total + (item.price * item.pcount),0)
+    return this.items.reduce((total,item) => total + (item.price * item.count),0)
   }
   gotoCheckout(){
     this.router.navigate(['/orders'])

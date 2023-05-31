@@ -9,15 +9,15 @@
         <h3>Shopping Cart</h3>
         <ul>
             <li *ngFor="let item of items; let i=index">
-                {{item.pname}} - {{item.price}} - Quantity:
-                <input type="number" [(ngModel)]="item.pcount" (input)="updateItemCount(i)" placeholder="1">
-                <button (click)="removeItem(i)">Remove</button>
+                <span>Product: {{item.productName}}</span> - <span>Price: {{item.price}}</span>               
+                - Quantity:<input type="number" [(ngModel)]="item.count" (input)="updateItemCount(i)" placeholder="1" width="5">
+                <button (click)="removeItem(i)" style="margin-left: 20px;color: rgb(237, 121, 100);">Remove</button>
             </li>
         </ul>
-        <p>Total: {{calculateCartTotal()}}</p>
+        <p>Total Price: {{calculateCartTotal()}}</p>
         <div>
-            <button (click)="closeModalCart()">Cancel</button>
-            <button (click)="gotoCheckout()">Proceed to checkout</button>
+            <button (click)="closeModalCart()" style="color:blue">Cancel</button>
+            <button (click)="gotoCheckout()" style="color: pink; margin-left: 20px;">Proceed to checkout</button>
         </div>
 
     </div>

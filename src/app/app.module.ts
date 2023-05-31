@@ -8,7 +8,7 @@ import { ProductComponent } from './product/product.component';
 import { CategoryComponent } from './category/category.component';
 import { SingleCategoryComponent } from './single-category/single-category.component';
 import { OneProductComponent } from './one-product/one-product.component';
-import { CartComponentComponent } from './cart-component/cart-component.component';
+
 import { CarouselComponent } from './carousel/carousel.component';
 
 import { LandingComponent } from './landing/landing.component';
@@ -20,33 +20,39 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
-import { ProductInfoComponent } from './product-info/product-info.component';
+
 import { MatDialogModule } from '@angular/material/dialog';
+
+import { RouterModule } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import {IonicModule} from '@ionic/angular'
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryComponent,
-    SingleCategoryComponent,
-    OneProductComponent,
-    CartComponentComponent,
+    
+    
    
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    RegisterformComponent,
-    ProductComponent,
-    LandingComponent,
+    RouterModule,
     HeaderComponent,
     SidenavComponent,
+    
+   
     MatDialogModule,
     MatToolbarModule,MatIconModule,MatListModule,MatButtonModule,MatSidenavModule,
-    CarouselComponent ,
+
+    CarouselComponent,
+    FontAwesomeModule   
+
+  
     IonicModule.forRoot(),
     HttpClientModule
   

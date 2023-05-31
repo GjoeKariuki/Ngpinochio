@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EcommerceService } from '../ecommerce.service';
 import { Products } from 'interface';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CartserviceService } from '../cartservice.service';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
@@ -15,7 +16,7 @@ export class ProductComponent implements OnInit {
   products: Products[] = [];
   hovered = false; 
 
-  constructor(private ecommerceService: EcommerceService, private router: Router) {}
+  constructor(private ecommerceService: EcommerceService, private router: Router, private cartservice:CartserviceService) {}
 
   ngOnInit(): void {
     this.products = this.ecommerceService.getProducts();
@@ -23,6 +24,9 @@ export class ProductComponent implements OnInit {
   showOne(id:string){
     this.router.navigate(['/category','product',id ])
       }
+  
+      addtoCart(product:Products){ this.cartservice.addToCart(product)}
+
 
 
  
