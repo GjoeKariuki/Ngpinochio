@@ -2,30 +2,20 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 
-import { CategoryComponent } from './category/category.component';
 
-import { SingleCategoryComponent } from './single-category/single-category.component';
 
-import { OneProductComponent } from './one-product/one-product.component';
 
-import { CartComponentComponent } from './cart-component/cart-component.component';
-
-import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
   // {path:'',component:ProductComponent},
 
   {
-    path: 'category',
-    component: CategoryComponent,
+    path: 'category', loadComponent: () => import('./category/category.component').then(c=>c.CategoryComponent),
     children: [
-      { path: ':category', component: SingleCategoryComponent },
+      { path: ':category', loadComponent:() => import('./single-category/single-category.component').then(d=>d.SingleCategoryComponent)},
 
-      { path: 'product/:id', component: OneProductComponent },
-
-      { path: ':cart', component: CartComponentComponent },
-
-      { path: '', component: ProductComponent },
+      { path: 'product/:id', loadComponent:() => import('./one-product/one-product.component').then(e=>e.OneProductComponent)},
+      { path: '', loadComponent: () => import('./product/product.component').then(g=>g.ProductComponent)},
     ],
   }, // {path: 'products', loadComponent:() => import('./products/products.component').then(c=>c.ProductsComponent)},
 
@@ -55,14 +45,6 @@ const routes: Routes = [
     path: 'products',
     loadComponent: () =>
       import('./product/product.component').then((c) => c.ProductComponent),
-  },
-
-  {
-    path: 'products/:id',
-    loadComponent: () =>
-      import('./product-info/product-info.component').then(
-        (c) => c.ProductInfoComponent
-      ),
   },
 
   {

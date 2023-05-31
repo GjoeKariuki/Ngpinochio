@@ -1,10 +1,15 @@
 <div class="displayedproducts" *ngIf="products.length;else noProducts">
     <div class="product" *ngFor="let product of products">
-     
+     <div [routerLink]="['/category','product',product.id ]">
+      
       <p> {{ product.productName }}</p>
       <img src="{{ product.image }}" alt="">
       <p>PRICE: {{ product.price }}</p>
-      <button (click)="showOne(product.id)">VIEW MORE</button>
+      <div>
+        <button (click)="showOne(product.id)">VIEW MORE</button>
+        <button (click)="addstocart(product)">Add to Cart</button>
+      </div>
+     </div>     
     </div>
   </div>
   
