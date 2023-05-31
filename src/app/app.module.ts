@@ -22,6 +22,8 @@ import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ProductInfoComponent } from './product-info/product-info.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
+import {IonicModule} from '@ionic/angular'
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     SidenavComponent,
     MatDialogModule,
     MatToolbarModule,MatIconModule,MatListModule,MatButtonModule,MatSidenavModule,
-    CarouselComponent   
+    CarouselComponent ,
+    IonicModule.forRoot(),
+    HttpClientModule
   
   ],
   providers: [],
