@@ -16,6 +16,7 @@ import { UserService } from '../Services/user.service';
 })
 export class RegisterformComponent implements  OnInit {
   form!:FormGroup
+  errorMessage=null
   constructor(private fb:FormBuilder, private userService:UserService){}
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -34,8 +35,12 @@ export class RegisterformComponent implements  OnInit {
 this.userService.addUser(this.form.value).subscribe (
 res=>{
 console.log(  res.message)
+},
+err=>{
+  this.errorMessage=err.message
 }
 )
+
 console.log(this.form.value) //  not a must
 }
 

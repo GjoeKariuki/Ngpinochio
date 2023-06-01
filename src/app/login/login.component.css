@@ -125,3 +125,16 @@ a:hover {
     background-color: black;
     transform: scale(1.1);
 }
+
+.errorMessage{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: white;
+    width:50%;
+    text-align: center;
+    margin-bottom:15px;
+   
+  }
