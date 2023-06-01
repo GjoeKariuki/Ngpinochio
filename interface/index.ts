@@ -20,3 +20,14 @@ export interface iCartproducts{
     quantity:number
     count:number
 }
+
+
+export interface newproduct {
+    id:string
+    category:string
+    productName:string
+    description:string
+    image:string
+    price:number
+    quantity:number    
+}

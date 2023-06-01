@@ -10,7 +10,7 @@
         <ul>
             <li *ngFor="let item of items; let i=index">
                 <span>Product: {{item.productName}}</span> - <span>Price: {{item.price}}</span>               
-                - Quantity:<input type="number" [(ngModel)]="item.count" (input)="updateItemCount(i)" placeholder="1" width="5">
+                - Quantity:<input type="number" [(ngModel)]="item.count" (input)="updateItemCount(i)" width="5">
                 <button (click)="removeItem(i)" style="margin-left: 20px;color: rgb(237, 121, 100);">Remove</button>
             </li>
         </ul>

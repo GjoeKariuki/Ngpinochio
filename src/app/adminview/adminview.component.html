@@ -1,0 +1,81 @@
+<div>
+    <div><button (click)="toggleShow()">Get Products</button></div>
+    <div><button (click)="generateForm()">Add Products</button></div>
+</div><br>
+<div>
+    <div><button>Get Orders</button></div>
+    <!-- <div><button (click)="generateForm()">Add Products</button></div> -->
+</div>
+
+<div *ngIf="secondDiv">
+    <div>
+        <form (ngSubmit)="onformsubmit()" [formGroup]="addform">
+            <div class="form-control">
+                <label for="id">Product ID: </label>
+                <input type="text" placeholder="676-67-7" formControlName="id">
+            </div>
+            <div class="form-control">
+                <label for="name">Product Name: </label>
+                <input type="text" placeholder="Sweet blankets" formControlName="productName">
+            </div>
+            <div class="form-control">
+                <label for="category">Product Category: </label>
+                <select name="" id="" formControlName="productcategory">
+                    <option value="" *ngFor="let pro of products">{{pro.category}}</option>
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="description">Product description</label>
+                <textarea name="" id="" cols="3" rows="5" placeholder="enter product description" formControlName="productdescription"></textarea>
+            </div>
+            <div class="form-control">
+                <label for="image">Product Image</label>
+                <input type="text" placeholder="https://pixabay.com" formControlName="productimage">
+            </div>
+            <div class="form-control">
+                <label for="price">Product Price</label>
+                <input type="number" placeholder="348534543" formControlName="productprice">
+            </div>
+            <div class="form-control">
+                <label for="quantity">Product Quantity</label>
+                <input type="number" placeholder="Enter product quantity" formControlName="productquantity">
+            </div>
+          <div>
+            <button type="submit">Add Product</button>
+          </div>
+            
+        </form>
+    </div>
+</div>
+
+
+    <div  class="mainbd" *ngIf="firstDiv && products!.length">
+        <input type="text" placeholder="search product by name"><br>
+        <input type="text" name="" id="" placeholder="search product by category">
+        <div class="grid-its" *ngFor="let prod of products" >
+            <div>
+                <h2>Product: {{prod.productName}}</h2>
+            </div>
+            <div>
+                <h2>Category: {{prod.category}}</h2>
+            </div>
+            <div>
+                <h2>Description: {{prod.description}}</h2>
+            </div>
+            <div>
+                <h2>Image: {{prod.image}}</h2>
+            </div>
+            <div>
+                <h2>Price: {{prod.price}}</h2>
+            </div>
+            <div>
+                <h2>Quantity: {{prod.quantity}}</h2>
+            </div>
+            <div>
+                <span (click)="updateProduct(prod)" [ngStyle]="{'cursor':'pointer','color':'blue', 'padding':'10px'}">Update Product</span>
+                <span (click)="deleteProduct(prod)" [ngStyle]="{'cursor':'pointer','color':'brown', 'padding':'10px'}">Delete Product</span>
+            </div>
+        </div>
+    </div>
+
+
