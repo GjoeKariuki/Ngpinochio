@@ -1,21 +1,38 @@
 import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
-
-
-
-
+import { ActivateService } from './Services/activate.service';
 
 const routes: Routes = [
   // {path:'',component:ProductComponent},
 
   {
-    path: 'category', loadComponent: () => import('./category/category.component').then(c=>c.CategoryComponent),
+    path: 'category',
+    canActivate:[ActivateService],
+    loadComponent: () =>
+      import('./category/category.component').then((c) => c.CategoryComponent),
     children: [
-      { path: ':category', loadComponent:() => import('./single-category/single-category.component').then(d=>d.SingleCategoryComponent)},
+      {
+        path: ':category',
+        loadComponent: () =>
+          import('./single-category/single-category.component').then(
+            (d) => d.SingleCategoryComponent
+          ),
+      },
 
-      { path: 'product/:id', loadComponent:() => import('./one-product/one-product.component').then(e=>e.OneProductComponent)},
-      { path: '', loadComponent: () => import('./product/product.component').then(g=>g.ProductComponent)},
+      {
+        path: 'product/:id',
+        loadComponent: () =>
+          import('./one-product/one-product.component').then(
+            (e) => e.OneProductComponent
+          ),
+      },
+      {
+        path: '',
+        canActivate:[ActivateService],
+        loadComponent: () =>
+          import('./product/product.component').then((g) => g.ProductComponent),
+      },
     ],
   }, // {path: 'products', loadComponent:() => import('./products/products.component').then(c=>c.ProductsComponent)},
 
@@ -27,6 +44,7 @@ const routes: Routes = [
 
   {
     path: 'sign-up',
+ 
     loadComponent: () =>
       import('./registerform/registerform.component').then(
         (c) => c.RegisterformComponent
@@ -43,12 +61,13 @@ const routes: Routes = [
 
   {
     path: 'products',
-    loadComponent: () =>
-      import('./product/product.component').then((c) => c.ProductComponent),
+    canActivate:[ActivateService],
+    loadChildren: () => import('./product/product.component').then((c) => c.ProductComponent),
   },
 
+
   {
-    path: 'cart',
+    path: 'cart' ,
     loadComponent: () =>
       import('./cart/cart.component').then((c) => c.CartComponent),
   },
