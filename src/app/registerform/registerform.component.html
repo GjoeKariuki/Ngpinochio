@@ -4,19 +4,22 @@
             <h1>Create new Account</h1>
             <h5 class="shake">ALREADY REGISTERED? &nbsp; CLICK HERE TO LOGIN</h5>
         </div>
+        <div  class="registrationerrormessage" *ngIf="errorMessage">
+            <p>{{errorMessage}}</p>
+        </div>
         
             <div class="formDetails">
                 <form (ngSubmit)="onSubmit()" [formGroup]="form" id="signup-form">
 
                     <div id="formdiv1" >
                         <input type="text" id="username" name="userName" placeholder="USERNAME" formControlName="userName">
-                        <p class="error" *ngIf="!form.get('username')?.valid && form.get ('username')?.touched">Username is required*</p>
+                        <p class="error" *ngIf="!form.get('userName')?.valid && form.get ('userName')?.touched">Username is required*</p>
                         <input type="text" id="fullname" name="fullName" placeholder="FULLNAME" formControlName="fullName">
-                        <p class="error" *ngIf="!form.get('fullname')?.valid && form.get ('fullname')?.touched">fullname is required*</p>
+                        <p class="error" *ngIf="!form.get('fullName')?.valid && form.get ('fullName')?.touched">fullname is required*</p>
                         <input type="email" id="email" name="email" placeholder="EMAIL" formControlName="email">
                         <p class="error" *ngIf="!form.get('email')?.valid && form.get ('email')?.touched">Email is required*</p>
                         <input type="tel" id="phone" name="phone" placeholder="PHONE NUMBER" formControlName="phoneNumber">
-                        <p class="error" *ngIf="!form.get('phonenumber')?.valid && form.get ('phonenumber')?.touched">PhoneNumber is required*</p>
+                        <p class="error" *ngIf="!form.get('phoneNumber')?.valid && form.get ('phoneNumber')?.touched">PhoneNumber is required*</p>
                     </div>
                     <div id="formdiv2">
                         <input type="password" id="password" name="password" placeholder="PASSWORD" formControlName="password">

@@ -4,7 +4,11 @@
             <h3>Login Here</h3>
             <p><span>Sign in to continue</span></p>
         </div>
+      
         <div class="form-items">
+            <div class="errorMessage" *ngIf="errorMessage">
+                <p>{{errorMessage}}</p>
+            </div>
             <form (ngSubmit)="onSubmit()" [formGroup]="form">
                 <div class="form-control">
                     <input type="email" placeholder="hello@ecommersuite.com" formControlName="email">
@@ -19,7 +23,7 @@
                     </div>
                 </div>
                 <div class="form-control">
-                    <button type="submit" [disabled]="!form.valid" id="logBtn">Login</button>
+                    <button type="submit" id="logBtn">Login</button>
                 </div>
                 <a [routerLink]="'/forgot-pwd'"><span>Forgot Password?</span></a>
     

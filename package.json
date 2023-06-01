@@ -20,16 +20,13 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
-
     "@fortawesome/angular-fontawesome": "^0.13.0",
     "@fortawesome/fontawesome-free": "^6.4.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
-
     "@ionic/angular": "^7.0.9",
-
     "@ng-bootstrap/ng-bootstrap": "^15.0.0",
     "ionicons": "^7.1.1",
     "rxjs": "~7.8.0",

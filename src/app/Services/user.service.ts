@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AddUserSuccess, newUser } from '../Interfaces';
+import { AddUserSuccess, logUserSuccess, loginUser, newUser } from '../Interfaces';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -13,4 +13,9 @@ export class UserService {
   addUser(NewUsers:newUser):Observable<AddUserSuccess>{
 return this.http.post<AddUserSuccess>(" http://localhost:4000/users" , NewUsers)
   }
+
+  loginUser(loginUsers:loginUser):Observable<logUserSuccess>{
+    return this.http.post<logUserSuccess>(" http://localhost:4000/users/login" ,loginUsers)
+      }
+
 }

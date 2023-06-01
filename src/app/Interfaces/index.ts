@@ -41,3 +41,14 @@ export interface iCart {
 export interface AddUserSuccess{
     message:string
 }
+
+export interface loginUser {
+  email: string;
+  password: string;
+}
+
+export interface logUserSuccess{
+  token:string;
+  roles:string;
+}
+

@@ -24,9 +24,10 @@ import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { RouterModule } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { HttpClientModule } from '@angular/common/http';
-import {IonicModule} from '@ionic/angular'
+import {IonicModule} from '@ionic/angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
 
 
 
@@ -50,11 +51,12 @@ import {IonicModule} from '@ionic/angular'
     MatToolbarModule,MatIconModule,MatListModule,MatButtonModule,MatSidenavModule,
 
     CarouselComponent,
-    FontAwesomeModule   
+    
 
   
     IonicModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   
   ],
   providers: [],
