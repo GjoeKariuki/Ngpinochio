@@ -15,8 +15,11 @@ import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
+
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 @NgModule({
@@ -29,6 +32,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatDialogModule,MatToolbarModule,MatIconModule,
     MatListModule,MatButtonModule,MatSidenavModule,
     CarouselComponent,FontAwesomeModule     
+
   ],
 
   providers: [],

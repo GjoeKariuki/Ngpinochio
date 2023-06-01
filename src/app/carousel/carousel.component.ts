@@ -1,19 +1,19 @@
 import { Component } from '@angular/core';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { CommonModule } from '@angular/common'; 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.css'],
   standalone:true,
-  imports:[NgbCarouselModule, NgIf, CommonModule],
+  imports:[NgbCarouselModule, NgIf,NgFor, CommonModule],
 
 })
 export class CarouselComponent{
   images = [
-    'assets/images/image1.jfif',
-    'assets/images/image2.jfif'
+    '/assets/images/image1.jfif',
+    '/assets/images/image2.jfif'
   ];
   getImageAltText(imagePath: string): string {
     const imageName = imagePath.substring(imagePath.lastIndexOf('/') + 1);
