@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Params,ActivatedRoute } from '@angular/router';
-import { Products } from 'interface';
+
 import { EcommerceService } from '../ecommerce.service';
 import { CartserviceService } from '../cartservice.service';
 import { CommonModule } from '@angular/common';
+import { Products } from '../Interfaces';
+
 
 @Component({
   selector: 'app-one-product',
@@ -18,7 +20,7 @@ product:Products | undefined
   ngOnInit(): void {
    const routeparams = this.route.snapshot.paramMap
    const prodid = routeparams.get('id') as string
-   this.product = this.ecommerceService.getProductById(prodid)
+  //  this.product = this.ecommerceService.getProductById(prodid)
     //  this.route.params.subscribe( (p:Params)=>{
     //  this.product=this.ecommerceService.getProductById(p['id'])
     //  })

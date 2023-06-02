@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EcommerceService } from '../ecommerce.service';
-import { Products } from 'interface';
+
 import { Router, RouterModule } from '@angular/router';
 import { CartserviceService } from '../cartservice.service';
+import { EcommerceproductService } from '../Services/ecommerceproduct.service';
+import { Observable } from 'rxjs';
+import { Products, iCart } from '../Interfaces';
 
 @Component({
   selector: 'app-product',
@@ -13,13 +16,13 @@ import { CartserviceService } from '../cartservice.service';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  products: Products[] = [];
-  hovered = false; 
-
-  constructor(private ecommerceService: EcommerceService, private router: Router, private cartservice:CartserviceService) {}
+  // products: Products[] = [];
+  // hovered = false; 
+ products!:Observable<Products[]>;
+  constructor(private ecommerceService: EcommerceService, private router: Router, private cartservice:CartserviceService, public ecommerceproductservice: EcommerceproductService) {}
 
   ngOnInit(): void {
-    this.products = this.ecommerceService.getProducts();
+    this.products = this.ecommerceproductservice.getAllProducts();
   }
   showOne(id:string){
     this.router.navigate(['/category','product',id ])
@@ -43,7 +46,7 @@ export class ProductComponent implements OnInit {
 //   ) {}
 
 //   ngOnInit(): void {
-//     this.product = this.ecommerceproductservice.getProducts();
+
 //     // this.products = this.ecommerceService.getProducts();
 //   }
 

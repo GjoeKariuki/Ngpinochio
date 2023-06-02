@@ -8,13 +8,15 @@ export interface newUser {
 
   }
 
-  export  interface iProducts {
+  export  interface Products {
     PID:string
     PNAME:string
     PDESCRIPTION:string
     PIMAGE:string
     PRICE:number
     ISDELETED: number
+    PCOUNT:number
+
 }
 
   
@@ -29,6 +31,7 @@ export interface newUser {
 }
 
 export interface iCart {
+  
     PID:string
     CARTID:string
     PNAME:string
@@ -53,4 +56,15 @@ export interface logUserSuccess{
   roles:string;
   userName:string;
 }
+
+export interface newItems{
+  pname: string,
+  pdescription:string
+  price: number
+}
+
+// export interface AddCartSuccess{
+//   token:string;
+//   roles:string;
+// }
 

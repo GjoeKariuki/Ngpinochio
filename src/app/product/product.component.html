@@ -33,15 +33,16 @@
 
   <div class="displayedproducts">
     <!-- <div *ngIf="product  "> -->
-    <div class="product" *ngFor="let product of products" >
-      <div [routerLink]="['/category','product',product.id ]">
-        <img src="{{product.image}}" alt="">
-        <p>Price: {{ product.price }}</p>
-        <p>Product Name: {{ product.productName }}</p>
+    <div class="product" *ngFor="let product of (products |async)" >
+      <div [routerLink]="['/category','product',product.PID ]">
+        <img src="{{product.PIMAGE}}" alt="">
+        <p>Price: {{ product.PRICE }}</p>
+        <p>Product Name: {{ product.PNAME }}</p>
+        <p>Description: {{ product.PDESCRIPTION }}</p>
       </div>     
       <!-- <p>Description: {{ product.description }}</p> -->
       <div>
-        <button (click)="showOne(product.id)" class="view-more-button">VIEW  DETAILS</button>
+        <button (click)="showOne(product.PID)" class="view-more-button">VIEW  DETAILS</button>
         <button (click)="addtoCart(product)" class="addtocart">Add to Cart</button>
       </div>
       

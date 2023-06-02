@@ -4,6 +4,7 @@ import { Products } from 'interface';
 import { EcommerceService } from '../ecommerce.service';
 import { CommonModule } from '@angular/common';
 import { CartserviceService } from '../cartservice.service';
+import { EcommerceproductService } from '../Services/ecommerceproduct.service';
 
 @Component({
   selector: 'app-single-category',
@@ -15,7 +16,7 @@ import { CartserviceService } from '../cartservice.service';
 export class SingleCategoryComponent implements OnInit {
   products:Products[]=[]
   // category!:string
-constructor(private route:ActivatedRoute, private router:Router,private ecommerceService: EcommerceService, private cartservice:CartserviceService){}
+constructor(private route:ActivatedRoute, private router:Router,private ecommerceService: EcommerceService, private cartservice:CartserviceService,public ecommerceproductservice:EcommerceproductService){}
   ngOnInit(): void {
    this.route.params.subscribe((p:Params)=>{
     this.products=this.ecommerceService.getProductinCategory(p['category'])
@@ -28,6 +29,6 @@ constructor(private route:ActivatedRoute, private router:Router,private ecommerc
 this.router.navigate(['/category','product',id ])
   }
   addstocart(product:Products) {
-    this.cartservice.addToCart(product)
+    // this.cartservice.addToCart(product)
   }
 }

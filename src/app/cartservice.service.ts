@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import {Products} from '../../interface/index'
-import {iCartproducts} from '../../interface/index'
+
+import { Products, iCart } from './Interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartserviceService {
   items:Products [] = []
-  itemz: iCartproducts[] = []
+  itemz: Products[] = []
   constructor() { }
   addToCart(product:Products){
-  const lets = ({...product, "count":1})
+  const lets = ({...product, "PCOUNT":1})
   // const lets = Object.assign(product,{"count":0})
    this.itemz.push(lets)
   }
