@@ -89,6 +89,7 @@ const routes: Routes = [
     loadComponent: () =>
       import('./landing/landing.component').then((c) => c.LandingComponent),
   },
+  { path: 'admin-view', loadComponent: ()=> import('./adminview/adminview.component').then(g=>g.AdminviewComponent)},
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { caraouslImages } from 'caraoselinterface';
-import { Products } from 'interface';
+import { Products, newproduct } from 'interface';
+import { products } from './productsholder';
 
 @Injectable({
   providedIn: 'root'
@@ -156,6 +157,38 @@ export class EcommerceService {
   //   return this.cartItems;
   // }
 
+  // add new product
+ 
+  addnewproduct(newprod:newproduct):void{
+    this.product.push(newprod)
+  }
+
+  // get all products
+  getallProducts():newproduct[]{
+    return this.product
+  }
+
+  getproductByName(vallew:string): newproduct[]{
+    const resalt = this.product.filter(x => x.productName.includes(vallew))!
+    return resalt
+  }
+
+  //
+  getproductsByPrice(vallew:number): newproduct[]{
+    const resalting = this.product.filter(x=> x.price < vallew)
+    return resalting
+  }
+
+  updateProduct(vallew:newproduct){
+    Object.assign(this.product.find(x=>x.id === vallew.id) as Products, vallew)
+    return this.product
+  }
+
+  // delete a product
+  deleteProduct(vallew:newproduct){
+    const index = this.product.findIndex(x=>x.id===vallew.id)
+    this.product.splice(index,1)
+  }
 
 
 
