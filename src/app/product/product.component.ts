@@ -28,8 +28,30 @@ export class ProductComponent implements OnInit {
       addtoCart(product:Products){ this.cartservice.addToCart(product)}
 
 
-
- 
-  
-
 }
+
+// export class ProductComponent implements OnInit {
+//   products: Products[] = [];
+//   hovered = false; 
+//   product!: Observable<iProducts[]>;
+
+//   constructor(
+//     private ecommerceService: EcommerceService,
+//     private router: Router,
+//     private cartservice: CartserviceService,
+//     public ecommerceproductservice: EcommerceproductService
+//   ) {}
+
+//   ngOnInit(): void {
+//     this.product = this.ecommerceproductservice.getProducts();
+//     // this.products = this.ecommerceService.getProducts();
+//   }
+
+//   showOne(id: string) {
+//     this.router.navigate(['/category', 'product', id]);
+//   }
+  
+//   addtoCart(product: Products) {
+//     this.cartservice.addToCart(product);
+//   }
+// }

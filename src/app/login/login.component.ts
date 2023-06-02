@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder,FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../Services/user.service';
+import { AuthService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit{
   form!:FormGroup
   errorMessage=null
 
-  constructor(private fb:FormBuilder, private router:Router,private userService:UserService){}
+  constructor(private fb:FormBuilder, private router:Router,private authService:AuthService,private userService:UserService){}
 ngOnInit(): void{
   this.form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -30,8 +31,9 @@ ngOnInit(): void{
    this.userService.loginUser(this.form.value).subscribe(
     res=>{
       this.errorMessage=null
-      localStorage.setItem('token', res.token)
-      localStorage.setItem('roles', res.roles)
+      this.authService.login(res)
+      this.router.navigate(['/category'])
+    
    },
    err=>{
    this.errorMessage = err.error.message ;
