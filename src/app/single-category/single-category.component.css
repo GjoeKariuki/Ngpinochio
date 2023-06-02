@@ -49,6 +49,21 @@
     margin-bottom: 5px;
   }
 
+  .btn1{
+    background-color: #1EBAD6;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    width: 20%;
+    margin-left: 20px;
+  }
+  .btn1:hover{
+    background-color: #1EBAD6
+  }
+
 
   @media only screen and (min-width: 500px) and (max-width: 700px) {
     .displayedproducts {

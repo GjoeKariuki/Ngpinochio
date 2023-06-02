@@ -45,10 +45,12 @@ export interface AddUserSuccess{
 export interface loginUser {
   email: string;
   password: string;
+  userName:string;
 }
 
 export interface logUserSuccess{
   token:string;
   roles:string;
+  userName:string;
 }
 

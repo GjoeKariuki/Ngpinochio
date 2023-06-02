@@ -10,11 +10,11 @@
       </div>
     </div>
   </div>
-  <div class="navbar">
+  <div class="navbar2">
    
-    <div class="logo">
+    <!-- <div class="logo">
       <img src="../../assets/elogo.png" alt="derfgb">
-    </div>
+    </div> -->
     <div class="search">
       <form>
         <input type="text" id="searchinput" name="search" placeholder="Search...">
@@ -32,8 +32,8 @@
   </div> -->
 
   <div class="displayedproducts">
-    
-    <div class="product" *ngFor="let product of products">
+    <!-- <div *ngIf="product  "> -->
+    <div class="product" *ngFor="let product of products" >
       <div [routerLink]="['/category','product',product.id ]">
         <img src="{{product.image}}" alt="">
         <p>Price: {{ product.price }}</p>
@@ -42,13 +42,31 @@
       <!-- <p>Description: {{ product.description }}</p> -->
       <div>
         <button (click)="showOne(product.id)" class="view-more-button">VIEW  DETAILS</button>
-        <button (click)="addtoCart(product)" class="view-more-button">Add to Cart</button>
+        <button (click)="addtoCart(product)" class="addtocart">Add to Cart</button>
       </div>
       
-      
+      <ng-template>
+        <p><i>No products found</i></p>
+      </ng-template>
 
     </div>
   </div>
+  </div>
 
 
-</div>
+<!-- </div> -->
+
+<footer>
+  <div class="footer-container">
+    <div class="address">
+      <h3>Address:</h3>
+      <p>123 Main Street</p>
+      <p>City, State, ZIP</p>
+    </div>
+    <div class="contact">
+      <h3>Contact Us:</h3>
+      <p>Phone: 123-456-7890</p>
+      <p>Email: info@example.com</p>
+    </div>
+  </div>
+</footer>

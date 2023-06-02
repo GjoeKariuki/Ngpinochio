@@ -15,6 +15,8 @@
         </main>
     </mat-sidenav-content>
 </mat-sidenav-container>
-
+<a href ="#" *ngIf="authService.isloggedIn()">{{authService.getuserName()}}</a>
+<a routerlink="login" *ngIf="!authService.isloggedIn()" >Login</a>
+<a *ngIf="authService.isloggedIn()" (click)="authService.logout()"> logout</a>
 <!-- <app-carousel>    
 </app-carousel> -->

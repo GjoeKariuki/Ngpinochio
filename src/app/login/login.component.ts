@@ -32,6 +32,7 @@ ngOnInit(): void{
     res=>{
       this.errorMessage=null
       this.authService.login(res)
+      this.router.navigate(['/category'])
     
    },
    err=>{

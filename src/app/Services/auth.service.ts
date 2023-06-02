@@ -14,8 +14,8 @@ token!:string|null
   login(res:logUserSuccess){
     localStorage.setItem('token', res.token)
     localStorage.setItem('roles', res.roles)
-  }
-
+      localStorage.setItem('userName', res.userName)
+  } 
   logout(){
     localStorage.clear()
  
@@ -26,5 +26,10 @@ token!:string|null
  let token=localStorage.getItem('token')
  this.token= token? token:null 
    return this.token?true :false
+  }
+
+  getuserName(){
+    let userName=localStorage.getItem('userName')
+   return userName? userName : "Welcome to our page"
   }
 }

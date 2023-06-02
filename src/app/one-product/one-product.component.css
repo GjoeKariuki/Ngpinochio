@@ -12,14 +12,14 @@
   padding: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   width: 900px;
-  height:500px;
+  height: 500px;
 }
 
 .product-image {
-  width: 50%;
-  height: 80%;
+  width: 40%;
+  height: 100%;
   object-fit: cover;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .product-details {
@@ -40,7 +40,7 @@
 }
 
 .add-to-cart-button {
-  background-color: #1EBAD6;;
+  background-color: #1EBAD6;
   color: #fff;
   border: none;
   padding: 8px 16px;
