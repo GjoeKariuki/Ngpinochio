@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 
 import {faCartShopping} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AuthService } from '../Services/auth.service';
+
 
 
 @Component({
@@ -21,17 +23,19 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
-  @Output() sidenavToggle = new EventEmitter()
-  faCartShopping = faCartShopping
-  constructor(private dialog:MatDialog){}
+  constructor(public authService: AuthService, private dialog: MatDialog) {}
+  
+  @Output() sidenavToggle = new EventEmitter();
+  faCartShopping = faCartShopping;
+  
   onToggleSidenav = () => { 
-    this.sidenavToggle.emit()
+    this.sidenavToggle.emit();
   }
-  openCartModal(){
-    const dialogref = this.dialog.open(CartComponent)
-    // dialogref.afterClosed().subscribe(result => {
-      
-    // })
+  
+  openCartModal() {
+    const dialogRef = this.dialog.open(CartComponent);
+    // dialogRef.afterClosed().subscribe(result => {
+    //   // Handle dialog closed event
+    // });
   }
 }

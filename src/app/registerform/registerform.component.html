@@ -1,38 +1,52 @@
 <div class="container">
     <div class="inputs">
-        <div class="headers">
-            <h1>Create new Account</h1>
-            <h5 class="shake">ALREADY REGISTERED? &nbsp; CLICK HERE TO LOGIN</h5>
+      <div class="headers">
+        <h1>Create new Account</h1>
+        <h5 class="shake">ALREADY REGISTERED? &nbsp; CLICK HERE TO LOGIN</h5>
+      </div>
+      <div class="registrationerrormessage" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </div>
+  
+      <div class="formDetails">
+        <div *ngIf="registrationSuccessful" class="successfulmessage">
+          Registration successful. Redirecting to the login page...
         </div>
-        <div  class="registrationerrormessage" *ngIf="errorMessage">
-            <p>{{errorMessage}}</p>
-        </div>
-        
-            <div class="formDetails">
-                <form (ngSubmit)="onSubmit()" [formGroup]="form" id="signup-form">
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" id="signup-form">
 
-                    <div id="formdiv1" >
-                        <input type="text" id="username" name="userName" placeholder="USERNAME" formControlName="userName">
-                        <p class="error" *ngIf="!form.get('userName')?.valid && form.get ('userName')?.touched">Username is required*</p>
-                        <input type="text" id="fullname" name="fullName" placeholder="FULLNAME" formControlName="fullName">
-                        <p class="error" *ngIf="!form.get('fullName')?.valid && form.get ('fullName')?.touched">fullname is required*</p>
-                        <input type="email" id="email" name="email" placeholder="EMAIL" formControlName="email">
-                        <p class="error" *ngIf="!form.get('email')?.valid && form.get ('email')?.touched">Email is required*</p>
-                        <input type="tel" id="phone" name="phone" placeholder="PHONE NUMBER" formControlName="phoneNumber">
-                        <p class="error" *ngIf="!form.get('phoneNumber')?.valid && form.get ('phoneNumber')?.touched">PhoneNumber is required*</p>
-                    </div>
-                    <div id="formdiv2">
-                        <input type="password" id="password" name="password" placeholder="PASSWORD" formControlName="password">
-                        <p class="error" *ngIf="!form.get('password')?.valid && form.get ('password')?.touched">Password is required*</p>
-                        <input type="password" id="confirmPassword" name="confirmPassword"
-                            placeholder="CONFIRM PASSWORD" formControlName="confirmpassword" >
-                            <p class="error" *ngIf="!form.get('confirmpassword')?.valid && form.get ('confirmpassword')?.touched">Password confirmation is required*</p>
-                    </div>
-                    <div id="formdiv3">
-                        <button type="submit" class="signup">SIGN UP</button>
-                    </div>
-                </form>
-            </div>
-        
+            <div id="formdiv1">
+                <input type="text" id="username" name="userName" placeholder="USERNAME" formControlName="userName">
+                <p class="error" *ngIf="!form.get('userName')?.valid && form.get('userName')?.touched">Username is required*</p>
+                <input type="text" id="fullname" name="fullName" placeholder="FULLNAME" formControlName="fullName">
+                <p class="error" *ngIf="!form.get('fullName')?.valid && form.get('fullName')?.touched">fullname is required*</p>
+                <input type="email" id="email" name="email" placeholder="EMAIL" formControlName="email">
+                <p class="error" *ngIf="!form.get('email')?.valid && form.get('email')?.touched">Email is required*</p>
+                <input type="tel" id="phone" name="phone" placeholder="PHONE NUMBER" formControlName="phoneNumber">
+                <p class="error" *ngIf="!form.get('phoneNumber')?.valid && form.get('phoneNumber')?.touched">PhoneNumber is required*</p>
+              </div>
+              <div id="formdiv2">
+                <input type="password" id="password" name="password" placeholder="PASSWORD" formControlName="password">
+                <p class="error" *ngIf="!form.get('password')?.valid && form.get('password')?.touched">Password is required*</p>
+                <input type="password" id="confirmPassword" name="confirmPassword"
+                  placeholder="CONFIRM PASSWORD" formControlName="confirmpassword">
+                <p class="error" *ngIf="!form.get('confirmpassword')?.valid && form.get('confirmpassword')?.touched">Password confirmation is required*</p>
+              </div>
+  
+          <div id="formdiv3">
+            <button
+              type="submit"
+              class="signup"
+              [disabled]="!form.valid || registrationSuccessful"
+            >
+              SIGN UP
+            </button>
+          </div>
+  
+         
+  
+        </form>
+      </div>
+  
     </div>
-</div>
+  </div>
+  

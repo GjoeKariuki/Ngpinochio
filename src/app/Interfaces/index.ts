@@ -58,9 +58,9 @@ export interface logUserSuccess{
 }
 
 export interface newItems{
-  pname: string,
-  pdescription:string
-  price: number
+  PNAME: string;
+  PDESCRIPTION:string;
+  PRICE: number;
 }
 
 // export interface AddCartSuccess{
