@@ -15,6 +15,9 @@ export class EcommerceproductService {
     return this.http.get<Products[]>('http://localhost:4000/products');
   }
   addToCart(newItem: newItems): Observable<{ message: string }> {
-    return this.http.post<{ message: string }>('http://localhost:4000/cart/125', newItem);
+    return this.http.post<{ message: string }>('http://localhost:4000/cart', newItem);
+  }
+  getProductById(id: string): Observable<Products | undefined> {
+    return this.http.get<Products>(`http://localhost:4000/products/${id}`);
   }
 }

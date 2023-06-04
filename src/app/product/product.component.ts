@@ -7,6 +7,9 @@ import { CartserviceService } from '../cartservice.service';
 import { EcommerceproductService } from '../Services/ecommerceproduct.service';
 import { Observable } from 'rxjs';
 import { Products, iCart } from '../Interfaces';
+import { AppState } from 'State/appState';
+import { Store } from '@ngrx/store';
+import { GetProducts } from 'State/Actions/productsAction';
 
 @Component({
   selector: 'app-product',
@@ -19,10 +22,11 @@ export class ProductComponent implements OnInit {
   // products: Products[] = [];
   // hovered = false; 
  products!:Observable<Products[]>;
-  constructor(private ecommerceService: EcommerceService, private router: Router, private cartservice:CartserviceService, public ecommerceproductservice: EcommerceproductService) {}
+  constructor(private ecommerceService: EcommerceService, private router: Router, private cartservice:CartserviceService, public ecommerceproductservice: EcommerceproductService,private store:Store<AppState>) {}
 
   ngOnInit(): void {
     this.products = this.ecommerceproductservice.getAllProducts();
+    this.store.dispatch(GetProducts())
   }
   showOne(id:string){
     this.router.navigate(['/category','product',id ])
@@ -33,28 +37,3 @@ export class ProductComponent implements OnInit {
 
 }
 
-// export class ProductComponent implements OnInit {
-//   products: Products[] = [];
-//   hovered = false; 
-//   product!: Observable<iProducts[]>;
-
-//   constructor(
-//     private ecommerceService: EcommerceService,
-//     private router: Router,
-//     private cartservice: CartserviceService,
-//     public ecommerceproductservice: EcommerceproductService
-//   ) {}
-
-//   ngOnInit(): void {
-
-//     // this.products = this.ecommerceService.getProducts();
-//   }
-
-//   showOne(id: string) {
-//     this.router.navigate(['/category', 'product', id]);
-//   }
-  
-//   addtoCart(product: Products) {
-//     this.cartservice.addToCart(product);
-//   }
-// }

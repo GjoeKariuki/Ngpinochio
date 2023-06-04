@@ -17,5 +17,7 @@ return this.http.post<AddUserSuccess>(" http://localhost:4000/users" , NewUsers)
   loginUser(loginUsers:loginUser):Observable<logUserSuccess>{
     return this.http.post<logUserSuccess>(" http://localhost:4000/users/login" ,loginUsers)
       }
-
+resetPassword(){
+  
+}
 }
