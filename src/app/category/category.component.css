@@ -6,6 +6,7 @@
   background-color: #f2f2f2;
   padding: 10px;
   border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
 }
 
 .content {
@@ -14,11 +15,12 @@
 
 .navbar-items {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   gap: 20px;
   list-style-type: none;
   padding: 0;
+  animation: floatingAnimation 2s infinite ease-in-out; 
 }
 
 .navbar-items li {
@@ -27,10 +29,13 @@
   border-radius: 5px;
   background-color: #fff;
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .navbar-items li:hover {
   background-color: #e2e2e2;
+  transform: scale(1.1);
 }
 
 .image-container {
@@ -38,14 +43,14 @@
   gap: 20px;
 }
 
-
-
-@media only screen and (min-width: 500px) and (max-width: 700px) {
-  .navbar-items li {
-    display: inline-block;
-    padding: 3px 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    cursor: pointer;
+@keyframes floatingAnimation {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
   }
 }

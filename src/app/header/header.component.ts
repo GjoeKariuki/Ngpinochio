@@ -9,17 +9,25 @@ import {CartComponent} from '../cart/cart.component'
 
 import { RouterModule } from '@angular/router';
 
+import {faCartShopping} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule,RouterModule,MatToolbarModule,MatIconModule,MatButtonModule],
+  imports: [CommonModule,RouterModule,MatToolbarModule,MatIconModule,MatButtonModule, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
 
   @Output() sidenavToggle = new EventEmitter()
-
+  faCartShopping = faCartShopping
+  rrole = localStorage.getItem('roles')
+  rname = localStorage.getItem('name')
+  rtoken = localStorage.getItem('token')
+  remail = localStorage.getItem('email')
   constructor(private dialog:MatDialog){}
   onToggleSidenav = () => { 
     this.sidenavToggle.emit()
@@ -30,4 +38,7 @@ export class HeaderComponent {
       
     // })
   }
+
+  
+  
 }

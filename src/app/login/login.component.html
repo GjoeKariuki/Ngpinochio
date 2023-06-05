@@ -1,30 +1,40 @@
-
-<div class="login-container">
-    <div class="login-heading">
-        <h3>Login Here</h3>
-        <p><span>Sign in to continue</span></p>
-    </div>
-    <div class="form-items">
-        <form (ngSubmit)="onSubmit()" [formGroup]="form">
-            <div class="form-control">
-                <input type="email" placeholder="hello@ecommersuite.com" formControlName="email">
-                <div *ngIf="!form.get('email')?.valid && form.get('email')?.touched">
-                    <span *ngIf="form.get('email')!.errors!['required']">* email is required</span>
+<div class="container">
+    <div class="login-container">
+        <div class="login-heading">
+            <h3>Login Here</h3>
+            <p><span>Sign in to continue</span></p>
+        </div>
+      
+        <div class="form-items">
+            <div class="errorMessage" *ngIf="errorMessage">
+                <p>{{errorMessage}}</p>
+            </div>
+            <form (ngSubmit)="onSubmit()" [formGroup]="form">
+                <div class="form-control">
+                    <input type="email" placeholder="hello@ecommersuite.com" formControlName="email">
+                    <div *ngIf="!form.get('email')?.valid && form.get('email')?.touched">
+                        <p class="error"*ngIf="form.get('email')!.errors!['required']">*email is required, Kindly fill in again </p>
+                    </div>
+                <!-- </div>
+                <div class="form-control"> -->
+                    <input type="password" placeholder="Enter password: **** " formControlName="upassword">
+                    <div *ngIf="!form.get('upassword')?.valid && form.get('upassword')?.touched">
+                        <p class="error" *ngIf="form.get('upassword')!.errors!['required']">* password is required</p>
+                    </div>
                 </div>
-            </div>
-            <div class="form-control">
-                <input type="password" placeholder="Enter password: **** " formControlName="password">
-                <div *ngIf="!form.get('password')?.valid && form.get('password')?.touched">
-                    <span *ngIf="form.get('password')!.errors!['required']">* password is required</span>
+                <div class="form-control">
+                    <button type="submit" id="logBtn">Login</button>
                 </div>
-            </div>
-            <div class="form-control">
-                <button type="submit" [disabled]="!form.valid" id="logBtn">Login</button>
-            </div>
-            <a [routerLink]="'/forgot-pwd'"><span>Forgot Password?</span></a>
+                <div>
+                    <a [routerLink]="'/forgot-pwd'"><span>Forgot Password?</span></a>
+                    <a [routerLink]="'/sign-up'"><span>Sign-Up Here</span></a>
 
-           
-        </form>
+                </div>
+    
+               
+            </form>
+        </div>
     </div>
-</div>
-
+    </div>
+    
+    

@@ -1,11 +1,19 @@
 <div class="displayedproducts" *ngIf="products.length;else noProducts">
-    <div class="product" *ngFor="let product of products">
-     
-      <p> {{ product.productName }}</p>
-      <img src="{{ product.image }}" alt="">
-      <p>PRICE: {{ product.price }}</p>
-      <p> {{ product.description }}</p>
-      <button (click)="showOne(product.id)">VIEW MORE</button>
+    <div class="product" *ngFor="let product of categoricalproducts ">
+     <div [routerLink]="['/category','product',product.PID]">
+      
+      <p> {{ product.PNAME}}</p>
+      <p>PRICE: {{ product.PDESCRIPTION }}</p>
+      <img src="{{ product.PIMAGE }}" alt="">
+      <p>PRICE: {{ product.PRICE }}</p>
+      <p>PRICE: {{ product.PCATEGORY }}</p>
+      <div>
+
+        <button (click)="showOne(product.PID)">VIEW MORE</button>
+        <button (click)="addstocart(product.PID)">Add to Cart</button>
+
+      </div>
+     </div>     
     </div>
   </div>
   
