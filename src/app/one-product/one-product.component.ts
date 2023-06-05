@@ -1,13 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Params,ActivatedRoute } from '@angular/router';
 
-import { EcommerceService } from '../ecommerce.service';
-import { CartserviceService } from '../cartservice.service';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { CommonModule } from '@angular/common';
-import { Products } from '../Interfaces';
-import { EcommerceproductService } from '../Services/ecommerceproduct.service';
-
-
+import { ProductsService } from '../Services/products.service';
+import { addIcart, iCart, iProducts } from '../Interfaces';
+import { CartService } from '../Services/cart.service';
 
 
 @Component({
@@ -18,25 +16,30 @@ import { EcommerceproductService } from '../Services/ecommerceproduct.service';
   standalone: true
 })
 export class OneProductComponent implements OnInit {
-constructor(private route:ActivatedRoute, private ecommerceService: EcommerceService, private cartservice:CartserviceService,public ecommerceproductService:EcommerceproductService){}
-product:Products | undefined
-ngOnInit(): void {
-  const routeparams = this.route.snapshot.paramMap;
-  const prodid = routeparams.get('id') as string;
+ 
+  product:iProducts | undefined
+  errorMsg:string = ''
+  usremail!:string
+  constructor(private route:ActivatedRoute, private serveproducts:ProductsService, private servecart:CartService){}
 
-  this.ecommerceproductService.getProductById(prodid).subscribe(
-    (product: Products | undefined) => {
-      this.product = product;
+  ngOnInit(): void {
+    this.usremail= localStorage.getItem('email')!
+   const routeparams = this.route.snapshot.paramMap
+   const prodid = routeparams.get('id') as string
+   this.serveproducts.getProductbyid(prodid).subscribe(
+    (res) => {
+      this.product = res
     },
-    (error: any) => {
-      console.error(error);
-    }
-  );
-}
+    (err) => {this.errorMsg = err}
+   )
+  }
+  
+  addToCart(x:string){
+    this.servecart.addToCart(x,this.usremail).subscribe(
+      (res) => {console.log(res)},
+      (err) => {console.log(err)}
+    )
 
-
-  addToCart(product: Products): void {
-    this.cartservice.addToCart(product);
   }
 
 }

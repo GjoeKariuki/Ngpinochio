@@ -20,25 +20,29 @@ export class LoginComponent implements OnInit{
 ngOnInit(): void{
   this.form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$')]]
+    upassword: ['', [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$')]]
   })
 }
 
   onSubmit(){
     // check if the details supplied are true
     //redirect to products
-   // this.router.navigate(['/products'])
-   this.userService.loginUser(this.form.value).subscribe(
-    res=>{
-      this.errorMessage=null
-      this.authService.login(res)
-      this.router.navigate(['/category'])
-    
-   },
-   err=>{
-   this.errorMessage = err.error.message ;
 
-   })
+    let formvls = this.form.value
+    this.userService.loginCurUser(formvls).subscribe(
+      (res) => {
+        this.errorMessage=null
+        localStorage.setItem('token', res.token)
+        localStorage.setItem('roles', res.role)
+        localStorage.setItem('name', res.name)
+        localStorage.setItem('email', res.email)
+        this.router.navigate(['/products'])
+        console.log(res)
+    },
+    (err) => {
+        this.errorMessage = err.error.message;
+        console.log(err)
+    })
 
   }
 

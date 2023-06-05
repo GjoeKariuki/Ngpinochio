@@ -20,8 +20,9 @@ import { RouterModule } from '@angular/router';
 
 import { HttpClientModule } from '@angular/common/http';
 
+
 import {IonicModule} from '@ionic/angular';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { StoreModule } from '@ngrx/store'
 import { paragraphReducer } from 'State/Reducers/paragraphReducer';
 import { EffectsModule } from '@ngrx/effects';
@@ -29,12 +30,15 @@ import { productReducer } from 'State/Reducers/productReducer';
 import { ProductEffects } from 'State/Effects/ProductsEffects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,AppRoutingModule,

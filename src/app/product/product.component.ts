@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EcommerceService } from '../ecommerce.service';
 
 import { Router, RouterModule } from '@angular/router';
-import { CartserviceService } from '../cartservice.service';
-import { EcommerceproductService } from '../Services/ecommerceproduct.service';
-import { Observable } from 'rxjs';
-import { Products, iCart } from '../Interfaces';
-import { AppState } from 'State/appState';
-import { Store } from '@ngrx/store';
-import { GetProducts } from 'State/Actions/productsAction';
+
+import { iCart, iProducts } from '../Interfaces';
+import { ProductsService } from '../Services/products.service';
+import { CartService } from '../Services/cart.service';
+
 
 @Component({
   selector: 'app-product',
@@ -19,20 +16,40 @@ import { GetProducts } from 'State/Actions/productsAction';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-  // products: Products[] = [];
-  // hovered = false; 
- products!:Observable<Products[]>;
-  constructor(private ecommerceService: EcommerceService, private router: Router, private cartservice:CartserviceService, public ecommerceproductservice: EcommerceproductService,private store:Store<AppState>) {}
+
+  products: iProducts [] = [];
+  hovered = false; 
+  errormsg:string = ''
+  useremail!:string
+
+  constructor(private serveproducts:ProductsService, private router: Router, private servecart:CartService) {
+    this.serveproducts.getProducts().subscribe(
+      (res) => {
+        this.products = res
+
+      },
+      (err) => {
+        this.errormsg = err
+      }
+
+    )
+  }
 
   ngOnInit(): void {
-    this.products = this.ecommerceproductservice.getAllProducts();
-    this.store.dispatch(GetProducts())
+    this.useremail = localStorage.getItem('email')!
   }
   showOne(id:string){
     this.router.navigate(['/category','product',id ])
       }
   
-      addtoCart(product:Products){ this.cartservice.addToCart(product)}
+  addtoCart(x:string){ 
+    // this.cartservice.addToCart(product)
+    this.servecart.addToCart(x, this.useremail).subscribe(
+      (res) => {console.log(res)},
+      (err) => {console.log(err)}
+    )
+  
+  }
 
 
 }

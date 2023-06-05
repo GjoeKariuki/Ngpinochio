@@ -1,11 +1,13 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartserviceService } from '../cartservice.service';
+
 import { MatDialogRef } from '@angular/material/dialog'
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { newItems } from '../Interfaces';
-import { EcommerceproductService } from '../Services/ecommerceproduct.service';
+
+import { CartService } from '../Services/cart.service';
+import { iCart } from '../Interfaces';
+
 
 @Component({
   selector: 'app-cart',
@@ -14,33 +16,44 @@ import { EcommerceproductService } from '../Services/ecommerceproduct.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
-  newItem!: newItems;  // Declare the newItem property here
-  constructor(
-    private cartservice: CartserviceService,
-    private matdialogref: MatDialogRef<CartComponent>,
-    private router: Router,
-    public productService: EcommerceproductService
-  ) {}
-  items = this.cartservice.getItems();
-  closeModalCart() {
-    this.matdialogref.close();
+
+export class CartComponent implements OnInit{
+  // isValueInserted:boolean=false
+  itemz:iCart[] =[]
+  constructor(private servecart:CartService,
+    private matdialogref:MatDialogRef<CartComponent>,
+    private router:Router){}
+    ngOnInit(): void {
+      this.servecart.getCartItems().subscribe(
+        (res) => {
+          this.itemz = res
+        },
+        (err) => {}
+      )
+    }
+  //items = this.cartservice.getItems()
+  closeModalCart(){
+    this.matdialogref.close()
   }
 
-  updateItemCount(index: number) {
-    const itm = this.items[index];
-    if (itm.PCOUNT <= 0) {
-      this.items.splice(index, 1);
+  updateItemCount(index:number){
+    const itm = this.itemz[index]
+    if(itm.PCOUNT <= 0){
+      this.itemz.splice(index,1)
+
     }
     // if(itm.pcount === 10){
     //   this.isValueInserted = true
     // }
   }
-  removeItem(index: number) {
-    this.items.splice(index, 1);
+
+
+  removeItem(index:number){
+    this.itemz.splice(index,1)
   }
-  calculateCartTotal(): number {
-    return this.items.reduce((total, item) => total + (item.PRICE * item.PCOUNT), 0);
+  calculateCartTotal():number{
+    return this.itemz.reduce((total,item) => total + (item.PRICE * item.PCOUNT),0)
+
   }
   gotoCheckout() {
     this.router.navigate(['/orders']);

@@ -2,7 +2,7 @@
 
 
     <div class="navbar-items">
-      <div *ngFor="let category of ecommerceService.getCategories()" routerLink="{{category}}">
+      <div *ngFor="let category of categories" routerLink="{{category}}">
         <li>{{category}}</li>
       </div>
     </div>

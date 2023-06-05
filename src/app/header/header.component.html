@@ -19,9 +19,13 @@
                 <a [routerLink]="'/orders'">ORDERS</a>
             </li>
             <li>
+
                 <a href ="#" *ngIf="authService.isloggedIn()">WELCOME, {{authService.getuserName()}}</a>
            <a routerlink="login" *ngIf="!authService.isloggedIn()" >LOGIN?</a>
           <a *ngIf="authService.isloggedIn()" class="logoutbtn" (click)="authService.logout()"> LOGOUT?</a>
+
+<!--                 <p><a [routerLink]="'/profile'">PROFILE</a>{{rrole}}</p> -->
+
             </li>
         </ul>
     </div>

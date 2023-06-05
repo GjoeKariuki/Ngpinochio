@@ -5,27 +5,23 @@
     <span>{{item.pquantity}}</span>
 </div> -->
 <div id="modal">
-  <div id="modal-content">
-    <h3>Shopping Cart</h3>
-    <ul>
-      <li *ngFor="let item of items; let i = index">
-        <span>Product: {{ item.PNAME }}</span> - <span>Price: {{ item.PRICE }}</span>
-        - Quantity:
-        <input type="number" [(ngModel)]="item.PCOUNT" (input)="updateItemCount(i)" width="5">
-        <button (click)="removeItem(i)" style="margin-left: 20px; color: rgb(237, 121, 100);">Remove</button>
-      </li>
-    </ul>
-    <p>Total Price: {{ calculateCartTotal() }}</p>
-    <div>
-      <form (ngSubmit)="addToCart()">
-          <input type="text" [(ngModel)]="newItem.pname" placeholder="Product Name">
-          <input type="text" [(ngModel)]="newItem.pdescription" placeholder="Product Description">
-          <input type="number" [(ngModel)]="newItem.price" placeholder="Price">
-          <button type="submit">Add to Cart</button>
-        </form>
-        
-      <button (click)="closeModalCart()" style="color: blue">Cancel</button>
-      <button (click)="gotoCheckout()" style="color: pink; margin-left: 20px;">Proceed to checkout</button>
+
+    <div id="modal-content">
+        <h3>Shopping Cart</h3>
+        <ul>
+            <li *ngFor="let item of itemz; let i=index">
+                <span>Product: {{item.PNAME}}</span> - <span>Price: {{item.PRICE}}</span>               
+                - Quantity:<input type="number" [(ngModel)]="item.PCOUNT" (input)="updateItemCount(i)" width="5">
+                <button (click)="removeItem(i)" style="margin-left: 20px;color: rgb(237, 121, 100);">Remove</button>
+            </li>
+        </ul>
+        <p>Total Price: {{calculateCartTotal()}}</p>
+        <div>
+            <button (click)="closeModalCart()" style="color:blue">Cancel</button>
+            <button (click)="gotoCheckout()" style="color: pink; margin-left: 20px;">Proceed to checkout</button>
+        </div>
+
+
     </div>
   </div>
 </div>

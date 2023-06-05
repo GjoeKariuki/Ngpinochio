@@ -23,11 +23,16 @@ import { AuthService } from '../Services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(public authService: AuthService, private dialog: MatDialog) {}
-  
-  @Output() sidenavToggle = new EventEmitter();
-  faCartShopping = faCartShopping;
-  
+
+
+  @Output() sidenavToggle = new EventEmitter()
+  faCartShopping = faCartShopping
+  rrole = localStorage.getItem('roles')
+  rname = localStorage.getItem('name')
+  rtoken = localStorage.getItem('token')
+  remail = localStorage.getItem('email')
+  constructor(private dialog:MatDialog,public authService: AuthService){}
+
   onToggleSidenav = () => { 
     this.sidenavToggle.emit();
   }
@@ -38,4 +43,7 @@ export class HeaderComponent {
     //   // Handle dialog closed event
     // });
   }
+
+  
+  
 }

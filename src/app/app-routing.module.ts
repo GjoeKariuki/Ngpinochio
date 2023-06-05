@@ -4,7 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ActivateService } from './Services/activate.service';
 
 const routes: Routes = [
-  // {path:'',component:ProductComponent},
+  //  {path:'',component:
+  //  AdminviewComponent},
 
   {
     path: 'category',
