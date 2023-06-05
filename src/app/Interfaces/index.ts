@@ -85,7 +85,11 @@ export interface logUserSuccess{
   role:string
   name:string
   email:string
+  password: string;
+  userName:string;
 }
+
+
 
 export interface updateUserSuccess{
   message:string

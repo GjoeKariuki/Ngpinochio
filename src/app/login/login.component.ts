@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder,FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../Services/user.service';
+import { AuthService } from '../Services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit{
   form!:FormGroup
   errorMessage=null
 
-  constructor(private fb:FormBuilder, private router:Router,private userService:UserService){}
+  constructor(private fb:FormBuilder, private router:Router,private authService:AuthService,private userService:UserService){}
 ngOnInit(): void{
   this.form = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -26,6 +27,7 @@ ngOnInit(): void{
   onSubmit(){
     // check if the details supplied are true
     //redirect to products
+
     let formvls = this.form.value
     this.userService.loginCurUser(formvls).subscribe(
       (res) => {
@@ -41,6 +43,7 @@ ngOnInit(): void{
         this.errorMessage = err.error.message;
         console.log(err)
     })
+
   }
 
   goForgot(){
