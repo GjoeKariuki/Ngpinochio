@@ -1,5 +1,6 @@
 export interface inewUser {
   
+
     username:string
     fullname: string
     email: string
@@ -7,7 +8,8 @@ export interface inewUser {
     upassword: string
     confirmpassword:string
 
-  }
+
+}
 
   export  interface iProducts {
     PID:string
@@ -59,6 +61,7 @@ export interface iCart {
     PDESCRIPTION:string
     PRICE:number
     PCOUNT:number
+
 }
 
 export interface addIcart {
@@ -71,8 +74,9 @@ export interface AddToCartSuccess {
 
 
 export interface AddUserSuccess{
-    message:string
+  message:string
 }
+
 
 export interface iloginUser {
   email: string;

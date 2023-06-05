@@ -33,17 +33,24 @@
 
   <div class="displayedproducts">
 
+
     
     <div class="product" *ngFor="let product of products">
+
       <div [routerLink]="['/category','product',product.PID ]">
         <img src="{{product.PIMAGE}}" alt="">
         <p>Price: {{ product.PRICE }}</p>
         <p>Product Name: {{ product.PNAME }}</p>
+
+        <p>Description: {{ product.PDESCRIPTION }}</p>
+
       </div>     
       <!-- <p>Description: {{ product.description }}</p> -->
       <div>
         <button (click)="showOne(product.PID)" class="view-more-button">VIEW  DETAILS</button>
+
         <button (click)="addtoCart(product.PID)" class="view-more-button">Add to Cart</button>
+
 
       </div>
       

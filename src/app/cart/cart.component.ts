@@ -4,8 +4,10 @@ import { CommonModule } from '@angular/common';
 import { MatDialogRef } from '@angular/material/dialog'
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { CartService } from '../Services/cart.service';
 import { iCart } from '../Interfaces';
+
 
 @Component({
   selector: 'app-cart',
@@ -14,6 +16,7 @@ import { iCart } from '../Interfaces';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit{
   // isValueInserted:boolean=false
   itemz:iCart[] =[]
@@ -37,19 +40,34 @@ export class CartComponent implements OnInit{
     const itm = this.itemz[index]
     if(itm.PCOUNT <= 0){
       this.itemz.splice(index,1)
+
     }
     // if(itm.pcount === 10){
     //   this.isValueInserted = true
     // }
   }
+
+
   removeItem(index:number){
     this.itemz.splice(index,1)
   }
   calculateCartTotal():number{
     return this.itemz.reduce((total,item) => total + (item.PRICE * item.PCOUNT),0)
+
   }
-  gotoCheckout(){
-    this.router.navigate(['/orders'])
-    this.closeModalCart()
+  gotoCheckout() {
+    this.router.navigate(['/orders']);
+    this.closeModalCart();
+  }
+  addToCart() { // Remove the item parameter from the addToCart() method
+    this.productService.addToCart(this.newItem).subscribe(
+      response => {
+        console.log(response.message); // Log the response message
+        // Add the item to the cart service or update the cart as required
+      },
+      error => {
+        console.log(error); // Handle the error appropriately
+      }
+    );
   }
 }

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { iProducts } from '../Interfaces';
+import { Products, newItems } from '../Interfaces';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
@@ -11,7 +11,13 @@ export class EcommerceproductService {
   constructor(private http: HttpClient) { 
   }
 
-  getAllProducts():Observable<iProducts[]>{
-    return this.http.get<iProducts[]>('http://localhost:4000/products');
+  getAllProducts():Observable<Products[]>{
+    return this.http.get<Products[]>('http://localhost:4000/products');
+  }
+  addToCart(newItem: newItems): Observable<{ message: string }> {
+    return this.http.post<{ message: string }>('http://localhost:4000/cart', newItem);
+  }
+  getProductById(id: string): Observable<Products | undefined> {
+    return this.http.get<Products>(`http://localhost:4000/products/${id}`);
   }
 }

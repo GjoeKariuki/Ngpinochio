@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserService } from '../Services/user.service';
+
 import { Router, RouterModule } from '@angular/router';
+
 
 
 @Component({
@@ -15,10 +17,21 @@ import { Router, RouterModule } from '@angular/router';
   
   
 })
-export class RegisterformComponent implements  OnInit {
-  form!:FormGroup
-  errorMessage=null
-  constructor(private fb:FormBuilder, private userService:UserService, private router:Router){}
+
+export class RegisterformComponent implements OnInit {
+  form!: FormGroup;
+  errorMessage: string | null = null;
+  registrationSuccessful: boolean = false;
+
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {}
+
+
+ 
+  
   ngOnInit(): void {
     this.form = this.fb.group({
       username:['',[Validators.required]],
@@ -30,25 +43,37 @@ export class RegisterformComponent implements  OnInit {
       // confirmpassword:['',[Validators.required]]
 
     })
+
   }
 
-
-  onSubmit(){
-    
+  onSubmit() {
     // this.userService.registerNewUser(objvalues)
     if(this.form.valid){
       let objvalues = this.form.value
       this.userService.registerNewUser(objvalues).subscribe(
         (res)=> {
-          console.log(res)
-          this.form.reset()          
-          this.router.navigate(['/login'])
+          // console.log(res)
+          this.registrationSuccessful = true;
+          setTimeout(() => {
+          this.handleSuccessfulRegistration();
+        }, 2000); 
+          this.form.reset()  
+          
+          //this.router.navigate(['/login'])
         },
-        (err)=> {console.log(err)}
+        (err)=> { this.errorMessage = err.message;}
       )
       // console.log(objvalues)
     }
   }
+
+
+  handleSuccessfulRegistration() {
+    // Redirect to the login page
+    this.router.navigate(['/login']);
+  }
+}
+  
 
 
 

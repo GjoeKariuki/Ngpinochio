@@ -10,6 +10,7 @@
     </div>
     <div id="navigateLinks">
         <ul class="navigation-items">
+           
             <li><a routerLink="/category" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">PRODUCTS</a></li>
             <li>
                 <a (click)="openCartModal()" style="cursor: pointer;"><fa-icon [icon]="faCartShopping"></fa-icon>CART</a>
@@ -18,7 +19,13 @@
                 <a [routerLink]="'/orders'">ORDERS</a>
             </li>
             <li>
-                <p><a [routerLink]="'/profile'">PROFILE</a>{{rrole}}</p>
+
+                <a href ="#" *ngIf="authService.isloggedIn()">WELCOME, {{authService.getuserName()}}</a>
+           <a routerlink="login" *ngIf="!authService.isloggedIn()" >LOGIN?</a>
+          <a *ngIf="authService.isloggedIn()" class="logoutbtn" (click)="authService.logout()"> LOGOUT?</a>
+
+<!--                 <p><a [routerLink]="'/profile'">PROFILE</a>{{rrole}}</p> -->
+
             </li>
         </ul>
     </div>

@@ -1,3 +1,4 @@
+
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -5,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsService } from '../Services/products.service';
 import { addIcart, iCart, iProducts } from '../Interfaces';
 import { CartService } from '../Services/cart.service';
+
 
 @Component({
   selector: 'app-one-product',
@@ -14,10 +16,11 @@ import { CartService } from '../Services/cart.service';
   standalone: true
 })
 export class OneProductComponent implements OnInit {
+ 
   product:iProducts | undefined
   errorMsg:string = ''
   usremail!:string
-constructor(private route:ActivatedRoute, private serveproducts:ProductsService, private servecart:CartService){}
+  constructor(private route:ActivatedRoute, private serveproducts:ProductsService, private servecart:CartService){}
 
   ngOnInit(): void {
     this.usremail= localStorage.getItem('email')!
@@ -36,6 +39,7 @@ constructor(private route:ActivatedRoute, private serveproducts:ProductsService,
       (res) => {console.log(res)},
       (err) => {console.log(err)}
     )
+
   }
 
 }

@@ -1,17 +1,22 @@
 <div class="container">
     <div class="inputs">
-        <div class="headers">
-            <h1>Create new Account</h1>
-            <h5 class="shake">ALREADY REGISTERED? &nbsp; <a [routerLink]="['/login']" [ngStyle]="{'cursor':'pointer'}">CLICK HERE TO LOGIN</a></h5>
-        </div>
-        <div  class="registrationerrormessage" *ngIf="errorMessage">
-            <p>{{errorMessage}}</p>
-        </div>
-        
-            <div class="formDetails">
-                <form (ngSubmit)="onSubmit()" [formGroup]="form" id="signup-form">
 
-                    <div id="formdiv1" >
+      <div class="headers">
+        <h1>Create new Account</h1>
+        <h5 class="shake">ALREADY REGISTERED? &nbsp; <a [routerLink]="['/login']" [ngStyle]="{'cursor':'pointer'}">CLICK HERE TO LOGIN</a></h5>
+      </div>
+      <div class="registrationerrormessage" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </div>
+  
+      <div class="formDetails">
+        <div *ngIf="registrationSuccessful" class="successfulmessage">
+          Registration successful. Redirecting to the login page...
+
+        </div>
+        <form (ngSubmit)="onSubmit()" [formGroup]="form" id="signup-form">
+
+            <div id="formdiv1" >
                         <input type="text" id="username" name="userName" placeholder="USERNAME" formControlName="username">
                         <p class="error" *ngIf="!form.get('username')?.valid && form.get ('username')?.touched">Username is required*</p>
                         <input type="text" id="fullname" name="fullName" placeholder="FULLNAME" formControlName="fullname">
@@ -28,10 +33,21 @@
                             placeholder="CONFIRM PASSWORD" formControlName="confirmpassword" >
                             <p class="error" *ngIf="!form.get('confirmpassword')?.valid && form.get('confirmpassword')?.touched">Password confirmation is required*</p>
                     </div>
-                    <div id="formdiv3">
-                        <button type="submit" class="signup">SIGN UP</button>
-                    </div>
-                </form>
-            </div>        
-    </div>
-</div>
+  
+          <div id="formdiv3">
+            <button
+              type="submit"
+              class="signup"
+              [disabled]="!form.valid || registrationSuccessful"
+            >
+              SIGN UP
+            </button>
+          </div>
+  
+         
+  
+        </form>
+      </div>  
+   </div>
+  </div>
+  

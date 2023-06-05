@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -20,7 +20,18 @@ import { RouterModule } from '@angular/router';
 
 import { HttpClientModule } from '@angular/common/http';
 
+
+import {IonicModule} from '@ionic/angular';
+
+import { StoreModule } from '@ngrx/store'
+import { paragraphReducer } from 'State/Reducers/paragraphReducer';
+import { EffectsModule } from '@ngrx/effects';
+import { productReducer } from 'State/Reducers/productReducer';
+import { ProductEffects } from 'State/Effects/ProductsEffects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 
@@ -35,7 +46,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatDialogModule,MatToolbarModule,MatIconModule,
     MatListModule,MatButtonModule,MatSidenavModule,
     CarouselComponent,FontAwesomeModule,
-    HttpClientModule,  
+    IonicModule.forRoot(),
+    HttpClientModule,
+    StoreModule.forRoot({paragraph:paragraphReducer, product:productReducer}),
+    EffectsModule.forRoot([ProductEffects]),
+    StoreDevtoolsModule.instrument({ name:'APM Demo App Devtools' ,maxAge: 25, logOnly: !isDevMode() }),  
 
 
   ],

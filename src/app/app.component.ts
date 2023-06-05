@@ -9,7 +9,7 @@ import { AuthService } from './Services/auth.service';
   
 })
 export class AppComponent {
-  constructor(public  authService:AuthService){}
+ // constructor(public  authService:AuthService){}
   title = 'eccomercesuitfrontend';
 
 }
