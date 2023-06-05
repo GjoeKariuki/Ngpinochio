@@ -24,6 +24,10 @@ export class HeaderComponent {
 
   @Output() sidenavToggle = new EventEmitter()
   faCartShopping = faCartShopping
+  rrole = localStorage.getItem('roles')
+  rname = localStorage.getItem('name')
+  rtoken = localStorage.getItem('token')
+  remail = localStorage.getItem('email')
   constructor(private dialog:MatDialog){}
   onToggleSidenav = () => { 
     this.sidenavToggle.emit()
@@ -34,4 +38,7 @@ export class HeaderComponent {
       
     // })
   }
+
+  
+  
 }

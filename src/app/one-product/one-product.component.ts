@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { Params,ActivatedRoute } from '@angular/router';
-import { Products } from 'interface';
-import { EcommerceService } from '../ecommerce.service';
-import { CartserviceService } from '../cartservice.service';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 import { CommonModule } from '@angular/common';
+import { ProductsService } from '../Services/products.service';
+import { addIcart, iCart, iProducts } from '../Interfaces';
+import { CartService } from '../Services/cart.service';
 
 @Component({
   selector: 'app-one-product',
@@ -13,24 +14,28 @@ import { CommonModule } from '@angular/common';
   standalone: true
 })
 export class OneProductComponent implements OnInit {
-constructor(private route:ActivatedRoute, private ecommerceService: EcommerceService, private cartservice:CartserviceService){}
-product:Products | undefined
+  product:iProducts | undefined
+  errorMsg:string = ''
+  usremail!:string
+constructor(private route:ActivatedRoute, private serveproducts:ProductsService, private servecart:CartService){}
+
   ngOnInit(): void {
+    this.usremail= localStorage.getItem('email')!
    const routeparams = this.route.snapshot.paramMap
    const prodid = routeparams.get('id') as string
-   this.product = this.ecommerceService.getProductById(prodid)
-    //  this.route.params.subscribe( (p:Params)=>{
-    //  this.product=this.ecommerceService.getProductById(p['id'])
-    //  })
-    // find product
-    //  const products = this.ecommerceService.getProducts()   
-    //this.product = products.find(pro => pro.id === prodid)
-   
+   this.serveproducts.getProductbyid(prodid).subscribe(
+    (res) => {
+      this.product = res
+    },
+    (err) => {this.errorMsg = err}
+   )
   }
-
-
-  addToCart(product: Products): void {
-    this.cartservice.addToCart(product);
+  
+  addToCart(x:string){
+    this.servecart.addToCart(x,this.usremail).subscribe(
+      (res) => {console.log(res)},
+      (err) => {console.log(err)}
+    )
   }
 
 }

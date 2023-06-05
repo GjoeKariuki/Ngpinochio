@@ -17,15 +17,19 @@
                     </div>
                 <!-- </div>
                 <div class="form-control"> -->
-                    <input type="password" placeholder="Enter password: **** " formControlName="password">
-                    <div *ngIf="!form.get('password')?.valid && form.get('password')?.touched">
-                        <p class="error" *ngIf="form.get('password')!.errors!['required']">* password is required</p>
+                    <input type="password" placeholder="Enter password: **** " formControlName="upassword">
+                    <div *ngIf="!form.get('upassword')?.valid && form.get('upassword')?.touched">
+                        <p class="error" *ngIf="form.get('upassword')!.errors!['required']">* password is required</p>
                     </div>
                 </div>
                 <div class="form-control">
                     <button type="submit" id="logBtn">Login</button>
                 </div>
-                <a [routerLink]="'/forgot-pwd'"><span>Forgot Password?</span></a>
+                <div>
+                    <a [routerLink]="'/forgot-pwd'"><span>Forgot Password?</span></a>
+                    <a [routerLink]="'/sign-up'"><span>Sign-Up Here</span></a>
+
+                </div>
     
                
             </form>

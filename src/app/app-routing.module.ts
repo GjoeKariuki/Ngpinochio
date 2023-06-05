@@ -7,7 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 const routes: Routes = [
-  // {path:'',component:ProductComponent},
+  //  {path:'',component:
+  //  AdminviewComponent},
 
   {
     path: 'category', loadComponent: () => import('./category/category.component').then(c=>c.CategoryComponent),

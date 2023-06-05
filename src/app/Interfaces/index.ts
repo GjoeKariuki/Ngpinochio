@@ -1,10 +1,11 @@
-export interface newUser {
+export interface inewUser {
   
-    userName:string;
-    fullName: string;
-    email: string;
-    phoneNumber: number;
-    password: string;
+    username:string
+    fullname: string
+    email: string
+    phonenumber: number
+    upassword: string
+    confirmpassword:string
 
   }
 
@@ -13,28 +14,59 @@ export interface newUser {
     PNAME:string
     PDESCRIPTION:string
     PIMAGE:string
+    PQUANTITY:number
     PRICE:number
+    PCATEGORY:string
     ISDELETED: number
 }
 
-  
-  export interface iorders {
-    ORDERID:string
-    PID:string
+export interface addIproduct {
     PNAME:string
-    PCOUNT:string
+    PDESCRIPTION:string
+    PIMAGE:string
+    PQUANTITY:number
     PRICE:number
+    PCATEGORY:string
+}
+  
+export interface AddProductSuccess {
+  message:string
+}
+
+export interface iorders {
+    ORDERID:string
+    CID:string
+    UID:string
+    UEMAIL:string
+    PNAME:string
+    PDESCRIPTION:string
+    PRICE:number
+    PCOUNT:string
+    ORDERDATE:string
+    ORDERSTATUS:string  
     ISDELETED: number
-    orderStatus:string
+}
+
+export interface AddOrderSuccess {
+  message: string
 }
 
 export interface iCart {
+    CID:string
     PID:string
-    CARTID:string
+    UID:string
     PNAME:string
     PDESCRIPTION:string
     PRICE:number
     PCOUNT:number
+}
+
+export interface addIcart {
+  email:string
+}
+
+export interface AddToCartSuccess {
+  message:string
 }
 
 
@@ -42,13 +74,31 @@ export interface AddUserSuccess{
     message:string
 }
 
-export interface loginUser {
+export interface iloginUser {
   email: string;
-  password: string;
+  upassword: string;
 }
 
 export interface logUserSuccess{
-  token:string;
-  roles:string;
+  message:string
+  token:string
+  role:string
+  name:string
+  email:string
 }
 
+export interface updateUserSuccess{
+  message:string
+}
+
+export interface dbusers {
+  USERID: string
+  USERNAME: string
+  FULLNAME: string
+  EMAIL: string
+  PHONENUMBER: number
+  UPASSWORD: string
+  UROLE: string
+  ISDELETED: number
+  EMAILSENT: number
+}

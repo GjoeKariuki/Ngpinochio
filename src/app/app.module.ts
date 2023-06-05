@@ -20,15 +20,14 @@ import { RouterModule } from '@angular/router';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import {IonicModule} from '@ionic/angular';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,  
+    AppComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule,AppRoutingModule,
@@ -36,7 +35,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     MatDialogModule,MatToolbarModule,MatIconModule,
     MatListModule,MatButtonModule,MatSidenavModule,
     CarouselComponent,FontAwesomeModule,
-    IonicModule.forRoot(),
     HttpClientModule,  
 
 

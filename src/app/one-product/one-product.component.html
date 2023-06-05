@@ -1,12 +1,12 @@
 <div class="displayed-products">
   <div class="product-card" *ngIf="product">
     <div>
-      <img src="{{ product.image }}" alt="" class="product-image">
+      <img src="{{ product.PIMAGE }}" alt="" class="product-image">
       <div class="product-details">
-        <h3 class="product-name">{{ product.productName }}</h3>
-        <p class="product-description">{{ product.description }}</p>
-        <p class="product-price">$ {{ product.price }}</p>
-        <button class="add-to-cart-button" (click)="addToCart(product)">ADD TO CART</button>
+        <h3 class="product-name">{{ product.PNAME }}</h3>
+        <p class="product-description">{{ product.PDESCRIPTION }}</p>
+        <p class="product-price">$ {{ product.PRICE }}</p>
+        <button class="add-to-cart-button" (click)="addToCart(product.PID)">ADD TO CART</button>
       </div>
     </div>
     
