@@ -17,7 +17,7 @@
     </div> -->
     <div class="search">
       <form>
-        <input type="text" id="searchinput" name="search" placeholder="Search...">
+        <input type="text" id="searchinput" name="search" placeholder="Search..." [(ngModel)]="search">
         <input type="submit" id="searchbtn" value="Search">
       </form>
     </div>
@@ -34,7 +34,7 @@
   <div class="displayedproducts">
 
     
-    <div class="product" *ngFor="let product of products">
+    <div class="product" *ngFor="let product of products | filtering:search">
       <div [routerLink]="['/category','product',product.PID ]">
         <img src="{{product.PIMAGE}}" alt="">
         <p>Price: {{ product.PRICE }}</p>

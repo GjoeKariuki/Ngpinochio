@@ -21,12 +21,12 @@ export interface inewUser {
 }
 
 export interface addIproduct {
-    PNAME:string
-    PDESCRIPTION:string
-    PIMAGE:string
-    PQUANTITY:number
-    PRICE:number
-    PCATEGORY:string
+    pname:string
+    pdescription:string
+    pimage:string
+    pquantity:number
+    price:number
+    pcategory:string
 }
   
 export interface AddProductSuccess {

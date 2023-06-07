@@ -7,20 +7,25 @@ import { CartService } from '../Services/cart.service';
 import { OrdersService } from '../Services/orders.service';
 import { addIproduct, iProducts, iorders } from '../Interfaces';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FilteringPipe } from '../filtering.pipe';
+import { CategoryPipe } from '../category.pipe';
 
 @Component({
   selector: 'app-adminview',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CategoryPipe,FilteringPipe,CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './adminview.component.html',
   styleUrls: ['./adminview.component.css']
 })
 export class AdminviewComponent implements OnInit {
+  usertoken = localStorage.getItem('token')
+  searchString = ''
+  catString = ''
   updatingproducts = false
   firstDiv = false
   secondDiv = false
   showorders = false
-  products:iProducts[] | undefined
+  products!:iProducts[]
   product!:iProducts
   errorMsg:string[] =[]
   ordersmade!:iorders[]
@@ -36,8 +41,16 @@ export class AdminviewComponent implements OnInit {
       (err) => {  this.errormsg = err}
     )
     this.serveproducts.getProducts().subscribe(
-      (res) => {  this.products = res},
-      (err) => { this.errormsg = err}
+      (res) => {  
+        this.products = res
+        console.log(res);
+        
+      },
+      (err) => { 
+        this.errormsg = err
+        console.log(err);
+        
+      }
     )
   }
   ngOnInit(): void {
@@ -45,21 +58,21 @@ export class AdminviewComponent implements OnInit {
         
     this.addform = this.fb.group({
       
-      PNAME: ['', [Validators.required]],
-      PCATEGORY: ['', [Validators.required]],
-      PDESCRIPTION: ['', [Validators.required]],
-      PIMAGE: ['', [Validators.required]],
-      PRICE: ['', [Validators.required]],
-      PQUANTITY: ['', [Validators.required]],
+      pname: ['', [Validators.required]],
+      pcategory: ['', [Validators.required]],
+      pdescription: ['', [Validators.required]],
+      pimage: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      pquantity: ['', [Validators.required]],
     })
     this.updateform = this.fb.group({
       
-      PNAME: ['', [Validators.required]],
-      PCATEGORY: ['', [Validators.required]],
-      PDESCRIPTION: ['', [Validators.required]],
-      PIMAGE: ['', [Validators.required]],
-      PRICE: ['', [Validators.required]],
-      PQUANTITY: ['', [Validators.required]],
+      pname: ['', [Validators.required]],
+      pcategory: ['', [Validators.required]],
+      pdescription: ['', [Validators.required]],
+      pimage: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      pquantity: ['', [Validators.required]],
     })
   }
   toggleShow(){
@@ -82,14 +95,14 @@ export class AdminviewComponent implements OnInit {
   }
   onformsubmit(){
      let cakke = this.addform.value
-    this.serveproducts.addProduct(cakke).subscribe(
+    this.serveproducts.addProduct(cakke, this.usertoken || '').subscribe(
       (res) => {
         console.log(res)
-        this.addform.reset
+        //this.addform.reset()
       },
       (err) => {console.log(err)}
     )   
-    alert("added successfult")
+    alert("added successfull")
     this.addform.reset()
     
   }
@@ -107,9 +120,9 @@ export class AdminviewComponent implements OnInit {
       (res) => {
         this.product = res
         this.updateform.setValue({
-          PNAME:res.PNAME, PCATEGORY:res.PCATEGORY,
-          PDESCRIPTION:res.PDESCRIPTION, PIMAGE:res.PIMAGE,
-          PRICE:res.PRICE, PQUANTITY:res.PQUANTITY
+          pname:res.PNAME, pcategory:res.PCATEGORY,
+          pdescription:res.PDESCRIPTION, pimage:res.PIMAGE,
+          price:res.PRICE, pquantity:res.PQUANTITY
         })
         this.errorMsg = []
       },
@@ -123,7 +136,7 @@ export class AdminviewComponent implements OnInit {
   onSubmitupdate(){
     let idprod = this.product.PID
     let updatesvales = this.updateform.value
-    this.serveproducts.updateProduct(idprod, updatesvales).subscribe(
+    this.serveproducts.updateProduct(idprod, updatesvales, this.usertoken || '').subscribe(
       (res) => { 
         // alert successful
         console.log(res)
@@ -132,10 +145,18 @@ export class AdminviewComponent implements OnInit {
       (err) => {console.log(err)}
     )
   }
-  deleteProduct(p:string){
-    this.serveproducts.deleteProduct(p)
-    
+  deleteProduct(p: string) {
+    this.serveproducts.deleteProduct(p, this.usertoken || '').subscribe(
+      (res) => {
+        console.log(res);
+        // Perform any additional actions upon successful deletion
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
+  
 
   getTheOrders(){
     

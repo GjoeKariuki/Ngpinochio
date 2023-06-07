@@ -13,7 +13,7 @@ token!:string|null
 
   login(res:logUserSuccess){
     localStorage.setItem('token', res.token)
-    localStorage.setItem('roles', res.roles)
+    localStorage.setItem('roles', res.role)
       localStorage.setItem('userName', res.userName)
   } 
   logout(){

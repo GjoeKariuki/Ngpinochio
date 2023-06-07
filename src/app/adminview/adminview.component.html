@@ -45,29 +45,29 @@
             <h2>Add Product Details</h2>
             <div class="form-control">
                 <label for="name">Product Name: </label>
-                <input type="text" placeholder="Sweet blankets" formControlName=" PNAME">
+                <input type="text" placeholder="Sweet blankets" formControlName="pname">
             </div>
             <div class="form-control">
                 <label for="category">Product Category: </label>
-                <select name="" id="" formControlName="PCATEGORY">
+                <select name="" id="" formControlName="pcategory">
                     <option value="" *ngFor="let pro of products">{{pro.PCATEGORY}}</option>
                 </select>
             </div>
             <div class="form-control">
                 <label for="description">Product description</label>
-                <textarea name="" id="" cols="3" rows="5" placeholder="enter product description" formControlName="PDESCRIPTION"></textarea>
+                <textarea name="" id="" cols="3" rows="5" placeholder="enter product description" formControlName="pdescription"></textarea>
             </div>
             <div class="form-control">
                 <label for="image">Product Image</label>
-                <input type="text" placeholder="https://pixabay.com" formControlName="PIMAGE">
+                <input type="text" placeholder="https://pixabay.com" formControlName="pimage">
             </div>
             <div class="form-control">
                 <label for="price">Product Price</label>
-                <input type="number" placeholder="348534543" formControlName="PRICE">
+                <input type="number" placeholder="348534543" formControlName="price">
             </div>
             <div class="form-control">
                 <label for="quantity">Product Quantity</label>
-                <input type="number" placeholder="Enter product quantity" formControlName="PQUANTITY">
+                <input type="number" placeholder="Enter product quantity" formControlName="pquantity">
             </div>
           <div>
             <button type="submit">Add Product</button>
@@ -79,9 +79,9 @@
 
 
     <div  class="mainbd" *ngIf="firstDiv && products!.length">
-        <input type="text" placeholder="search product by name"><br>
-        <input type="text" name="" id="" placeholder="search product by category">
-        <div class="grid-its" *ngFor="let prod of products" >
+        <input type="text" placeholder="search product by name" [(ngModel)]="searchString"><br>
+        <input type="text" name="" id="" placeholder="search product by category" [(ngModel)]="catString">
+        <div class="grid-its" *ngFor="let prod of products | filtering:searchString | category:catString " >
             <div>
                 <h2>Product: {{prod.PNAME}}</h2>
             </div>
@@ -114,32 +114,32 @@
             <h2>Update Product Details</h2>
             <div class="form-control">
                 <label for="name">Product Name: </label>
-                <input type="text" formControlName="PNAME">
+                <input type="text" formControlName="pname">
             </div>
             <div class="form-control">
                 <label for="category">Product Category: </label>
-                <select name="" id="" formControlName="PCATEGORY">
+                <select name="" id="" formControlName="pcategory">
                     <option value="" *ngFor="let pro of products">{{pro.PCATEGORY}}</option>
                 </select>
             </div>
             <div class="form-control">
                 <label for="description">Product description</label>
-                <textarea name="" id="" cols="3" rows="5" formControlName="PDESCRIPTION"></textarea>
+                <textarea name="" id="" cols="3" rows="5" formControlName="pdescription"></textarea>
             </div>
             <div class="form-control">
                 <label for="image">Product Image</label>
-                <input type="text" formControlName="PIMAGE">
+                <input type="text" formControlName="pimage">
             </div>
             <div class="form-control">
                 <label for="price">Product Price</label>
-                <input type="number" formControlName="PRICE">
+                <input type="number" formControlName="price">
             </div>
             <div class="form-control">
                 <label for="quantity">Product Quantity</label>
-                <input type="number" formControlName="PQUANTITY">
+                <input type="number" formControlName="pquantity">
             </div>
           <div>
-            <button type="submit">Add Product</button>
+            <button type="submit">Update Product</button>
           </div>
             
         </form>

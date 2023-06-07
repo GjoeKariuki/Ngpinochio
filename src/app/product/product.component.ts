@@ -6,16 +6,19 @@ import { Router, RouterModule } from '@angular/router';
 import { iCart, iProducts } from '../Interfaces';
 import { ProductsService } from '../Services/products.service';
 import { CartService } from '../Services/cart.service';
+import { FormsModule } from '@angular/forms';
+import { FilteringPipe } from '../filtering.pipe';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [FilteringPipe,CommonModule, RouterModule, FormsModule],
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
   products: iProducts [] = [];
+  search = ''
   hovered = false; 
   errormsg:string = ''
   useremail!:string
